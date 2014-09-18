@@ -41,23 +41,7 @@
 		  
 		});
 		
-		/*
-		var app2 = angular.module("sampleApp", ["firebase"]);
-		app2.controller("registerFunc", function($scope, $firebase) {
-			var ref = new Firebase("https://resplendent-fire-1812.firebaseio.com/users");
-			  $scope.registers = sync.$asArray();
-			  $scope.fname = "";
-			  $scope.lname = "";
-			  $scope.email = "";
-			  $scope.password = "";
-			  $scope.confirm = "";
-			  $scope.remember = "";
-			  $scope.register = function(fname, lname, email, password, remember) {
-			    $scope.registers.$add({fname: fname, lname: lname, email: email, password: password, remember: remember});	
-		  }
-		});
-		*/
-		
+
     </script>
   </head>  <body ng-controller="SampleCtrl">
         <!--[if lt IE 7]>
