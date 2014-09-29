@@ -32,6 +32,21 @@ $scope.logout = function() {
 
 
 
+		  var auth = new FirebaseSimpleLogin(ref, function(error, user) {
+		  	if (!user) {
+				auth.login('google', {
+				  rememberMe: true
+				});
+		  	}
+		  	else {
+		  		console.log(user.displayName);
+
+		  		var username = user.displayName;
+		  		
+		  	}
+						  			  	
+			});
+
 var sync = $firebase(ref);
 
 
@@ -43,12 +58,15 @@ $scope.title = "";
 
 $scope.desc = "";
 
+$scope.user = username;
+
 
 $scope.addIdea = function(title, desc, id, displayName) {
 	$scope.ideas.$add(
 		{
 			title: title, 
-			desc: desc
+			desc: desc,
+			user: user
 		}
 		);
 	//The user id needs to be pulled and we need to post
