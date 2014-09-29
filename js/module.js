@@ -51,6 +51,8 @@ $scope.addIdea = function(title, desc, id, displayName) {
 			desc: desc
 		}
 		);
+	//The user id needs to be pulled and we need to post
+	//the idea id generated here to the user branch
 	$scope.title = '';
 	$scope.desc = '';
 
