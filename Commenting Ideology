@@ -1,8 +1,10 @@
 Commenting Ideology:
 - Every idea has a list of comments associated with it
-- Comments is an object within ideas trunk
-	- Key is the comment id, and the value is the text of the comment
-	- Comment counter associated with each idea increments each time a comment is posted
-		- Decrements each time a comment is deleted
+- Comments is an list within ideas trunk
+	- Holds each comment that was made under a given idea
+	- Comment should have:
+		- User who wrote the comment
+		- Timestamp of when it was written
+		- The text of the actual comment
 - Comments should display in chronological order
 	- That is, they should show up from highest to lowest key number

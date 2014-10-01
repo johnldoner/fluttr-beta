@@ -34,11 +34,11 @@
 		  $scope.ideas = sync.$asArray();
 		  $scope.title = "";
 		  $scope.desc = "";
-		  $scope.comments = 0;
-		  $scope.commentShow = false;
+		  $scope.comments = [];
 		  $scope.addIdea = function(title, desc, id, displayName) {
 		    $scope.ideas.$add({title: title, desc: desc, comments: comments});
 		  }
+		  $scope.commentShow = false;
 		  $scope.showComment = function() {
 		  	$scope.commentShow = !$scope.commentShow;
 		  };
@@ -52,7 +52,19 @@
 	  	<span class="badge" ng-click="showComment()">{{ idea.comments }}</span>
 	    <h4 class="list-group-item-heading">{{ idea.title }}</h4>
     	<p class="list-group-item-text">{{ idea.desc }}</p>
-    	<ul class="list-group" ng-hide="commentShow"
+    	<ul class="list-group" ng-hide="commentShow">
+    		<li class="list-group-item" ng-repeat="note in comments">
+    			{{ note.text }}
+    		</li>
+    		<li>
+    			<div class="input-group">
+    				<input type="text" class="form-control" placeholder="Add comment here">
+    				<span class="input-group-btn">
+        				<button class="btn btn-default" type="button">Post!</button>
+      				</span>
+    			</div>
+    		</li>
+    	</ul>
 	  </li>
 	</ul>
 </body>
