@@ -5,6 +5,9 @@ Commenting Ideology:
 	- Comment should have:
 		- User who wrote the comment
 		- Timestamp of when it was written
+		- ID to be used for future reference
 		- The text of the actual comment
+		- ID of post it is linked to
+		- Whether it is linked to an idea or a project
 - Comments should display in chronological order
 	- That is, they should show up from highest to lowest key number
