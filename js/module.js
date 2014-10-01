@@ -22,6 +22,23 @@ var ref = new Firebase("https://resplendent-fire-1812.firebaseio.com/ideas");
 		  		$scope.displayName = user.displayName;
 		  		$scope.uid = user.uid;
 
+				$scope.addIdea = function(title, desc, id, displayName) {
+
+				$scope.displayName = user.displayName;
+				$scope.uid = user.uid;
+
+					$scope.ideas.$add(
+						{
+							"title": title, 
+							"desc": desc,
+							"user": user.uid
+						}
+						);
+					//The user id needs to be pulled and we need to post
+					//the idea id generated here to the user branch
+					$scope.title = '';
+					$scope.desc = '';
+				}
 		  	}
 						  			  	
 			});
@@ -35,23 +52,7 @@ $scope.ideas = sync.$asArray();
 $scope.title = "";
 $scope.desc = "";
 
-$scope.addIdea = function(title, desc, id, displayName) {
 
-$scope.displayName = user.displayName;
-$scope.uid = user.uid;
-
-	$scope.ideas.$add(
-		{
-			"title": title, 
-			"desc": desc,
-			"user": "test"
-		}
-		);
-	//The user id needs to be pulled and we need to post
-	//the idea id generated here to the user branch
-	$scope.title = '';
-	$scope.desc = '';
-}
 
 
 
