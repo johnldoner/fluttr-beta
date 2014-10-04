@@ -49,13 +49,4 @@ var sync = $firebase(ref);
 $scope.ideas = sync.$asArray();
 
 
-$scope.title = "";
-$scope.desc = "";
-
-
-
-
-
-
-
 });
