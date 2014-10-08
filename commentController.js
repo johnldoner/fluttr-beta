@@ -14,6 +14,7 @@
 		var app = angular.module("sampleApp", ["firebase"]);
 		app.controller("SampleCtrl", function($scope, $firebase) {
 			var ref = new Firebase("https://resplendent-fire-1812.firebaseio.com/");
+			var user;
 			var auth = new FirebaseSimpleLogin(ref.child("ideas"), function(error, user) {
 				if (error) {
 					console.log("User could not be logged in. Error code: " + error.code);
@@ -34,7 +35,7 @@
 					console.log(user.accessToken);
 					console.log(user.displayName);
 					$scope.displayName = user.displayName;
-					$scope.id = user.id;
+					user = user.id;
 				}
 			});
 				
