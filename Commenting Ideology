@@ -11,3 +11,10 @@ Commenting Ideology:
 		- Whether it is linked to an idea or a project
 - Comments should display in chronological order
 	- That is, they should show up from highest to lowest key number
+
+var comment = { userid, likes [should be 0 to start with], text, timestamp, idea ID
+
+How to post new comment:
+1) Comment list should already be added to comment trunk for idea upon idea creation
+2) Retrieve comment list based on idea
+3) Add current comment to end of list

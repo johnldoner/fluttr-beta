@@ -59,19 +59,45 @@
 				}
 			});
 			var comments = ref.child("comments");
-			comments.push({});
 
-			function commentHandler($scope) {
+			function commentController($scope) {
 				$scope.idea = null;
 				$scope.commentShow = false;
 				$scope.showComment() = function(idea) {
 					$scope.idea = idea;
 					$scope.commentShow = !$scope.commentShow;
 				}
-				$scope.post() = function(text, ) {
-					var commentPath = ref.child("comments");
-					commentPath.push()
-					var path = ref.child("ideas").child($scope.idea);
+				$scope.post() = function(text, idea) {
+					var commentPath = $scope.idea.comments;
+					var thread = comments.child(commentPath);
+					// Pushes a comment to the list of commments that exist for a given idea
+					var new_comment = { "user": user, "likes": 0, "text": text, "timestamp": Firebase.ServerValue.TIMESTAMP, "idea": idea };
+					thread.transaction(function(list) {
+						return list.push(new_comment);
+					}, function(error, committed, snapshot) {
+						if(error) {
+							console.log("New comment could not be added");
+						}
+						else {
+							concole.log("Comment added successfully")
+						}
+					});
+				}
+				$scope.upvote() = function(idea, upvote) {
+					var likes_path = ref.child("ideas").child(idea).child("likes");
+					likes_path.transaction(function(likes) {
+						if(upvote) { return likes + 1; }
+						else { return likes - 1; }
+					});
+				}
+				$scope.like_comment() = functino(idea, comment) {
+					if(user == idea.user) {
+						var author = comment.user;
+						var author_path = ref.child("users").child(author);
+						author_path.child("karma").transaction(function(karma) {
+							return karma + 1;
+						});
+					}
 				}
 			}
 
