@@ -18,7 +18,7 @@ git remote add origin https://github.com/johnldoner/fluttr.git
 
 ```
 git add *
-git commit -m "https issue"
+git commit -m "idea list"
 git push -u origin master
  ```
 
