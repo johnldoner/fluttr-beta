@@ -1,0 +1,72 @@
+<html ng-app="app">
+ 
+  <head>
+  
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js" ></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.6/angular.min.js'></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
+    <script src='https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js'></script>
+ 
+  </head>
+  
+ 
+  <body>
+    
+      <div ng-controller="ctrl">
+        
+         <div ng-repeat="(id,item) in data">
+            
+         <div ng-if="idea_index == $index "> <!--Put && item.Seen != 'True' to loop through correctly-->
+            <strong>{{item.title}}</strong>
+            <button  ng-click="LikeItem(id)">Like</button><button  ng-click="DislikeItem(id)">Dislike</button>
+        </div>
+
+        </div>
+         
+        
+    <hr>
+    <button ng-click="next()">Next</button>
+    <hr>Your Choice: {{item.title}}
+    </div>
+    
+    
+<script>
+angular.module("app", ["firebase"])
+ 
+ 
+.controller("ctrl", 
+   function($scope, $firebase) {
+ 
+  
+  var ref = new Firebase("https://resplendent-fire-1812.firebaseio.com/ideas");
+   
+    var sync = $firebase(ref)
+    $scope.data = sync.$asArray();
+
+    $scope.idea_index = 0;
+  
+     $scope.next = function() {
+       $scope.idea_index ++;
+    };
+ 
+  //http://stackoverflow.com/questions/25087576/angularjs-ng-repeat-show-one-item-at-a-time
+  
+    
+    $scope.LikeItem = function (id) {
+        $scope.data[id].Like = 'True';
+        $scope.data[id].Seen = 'True';
+        $scope.data.$save(id);
+}
+    $scope.DislikeItem = function (id) {
+        $scope.data[id].Like = 'False';
+        $scope.data[id].Seen = 'True';
+        $scope.data.$save(id);
+}
+  });
+</script>
+
+
+    
+</body>
+</html>
