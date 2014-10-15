@@ -17,12 +17,16 @@
         
          <div ng-repeat="(id,item) in data">
             
+         <div ng-if="idea_index == $index "> <!--Put && item.Seen != 'True' to loop through correctly-->
             <strong>{{item.title}}</strong>
             <button  ng-click="LikeItem(id)">Like</button><button  ng-click="DislikeItem(id)">Dislike</button>
+        </div>
 
         </div>
          
-
+    <hr>
+    <button ng-click="next()">Next</button>
+    <hr>Your Choice: {{item.title}}
     </div>
     
     

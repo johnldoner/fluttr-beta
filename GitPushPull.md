@@ -18,7 +18,7 @@ git remote add origin https://github.com/johnldoner/fluttr.git
 
 ```
 git add *
-git commit -m "idea list"
+git commit -m "python backup"
 git push -u origin master
  ```
 
