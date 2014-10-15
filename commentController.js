@@ -90,7 +90,7 @@
 						else { return likes - 1; }
 					});
 				}
-				$scope.like_comment() = functino(idea, comment) {
+				$scope.like_comment() = function(idea, comment) {
 					if(user == idea.user) {
 						var author = comment.user;
 						var author_path = ref.child("users").child(author);
