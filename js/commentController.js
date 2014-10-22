@@ -1,6 +1,6 @@
 var app = angular.module("sampleApp", ["firebase"]);
 app.controller("SampleCtrl", function($scope, $firebase) {
-	var ref = new Firebase("https://resplendent-fire-1812.firebaseio.com/");
+	var ref = new Firebase("https://crowdfluttr.firebaseio.com/");
 	var user;
 	var auth = new FirebaseSimpleLogin(ref.child("ideas"), function(error, user) {
 		if (error) {

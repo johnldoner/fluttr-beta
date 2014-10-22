@@ -7,7 +7,7 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 
 
 
-var ref = new Firebase("https://resplendent-fire-1812.firebaseio.com/ideas");
+var ref = new Firebase("https://crowdfluttr.firebaseio.com/ideas");
 
 		  var auth = new FirebaseSimpleLogin(ref, function(error, user) {
 		  	if (!user) {
