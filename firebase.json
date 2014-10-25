@@ -1,9 +1,9 @@
 {
-  "firebase": "resplendent-fire-1812",
-  "public": ".",
+  "firebase": "crowdfluttr",
+  "public": "wei",
   "ignore": [
     "firebase.json",
-    "**/.*",
+    ".*",
     "**/node_modules/**"
   ]
 }

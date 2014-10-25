@@ -3,7 +3,6 @@
 1. CD into directory to get working Directory
 2. initialize git like so `git init`. Do it only once. Ex.g.,
 ```
-cd /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/Cruz
 cd /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/fluttr
 
 Git init
@@ -18,7 +17,7 @@ git remote add origin https://github.com/johnldoner/fluttr.git
 
 ```
 git add *
-git commit -m "restructure"
+git commit -m "moved to crowdfluttr.firebase"
 git push -f origin master
  ```
 
