@@ -24,9 +24,6 @@ var ref = new Firebase("https://crowdfluttr.firebaseio.com/ideas");
 		  		$scope.displayName = user.displayName;
 		  		$scope.uid = user.uid;
 
-		  		$scope.showForm = true;
-		  		$scope.hideForm = false;
-
 				$scope.addIdea = function(title, id, displayName) {
 
 				$scope.displayName = user.displayName;
@@ -36,14 +33,12 @@ var ref = new Firebase("https://crowdfluttr.firebaseio.com/ideas");
 						{
 							"title": title, 
 							"user": user.uid,
-							"timestamp": Date.now();
+							"timestamp": Date.now()
 						}
 						);
 					//The user id needs to be pulled and we need to post
 					//the idea id generated here to the user branch
 					$scope.title = '';
-					$scope.showForm = false;
-					$scope.hideForm = true;
 				}
 		  	}
 						  			  	
