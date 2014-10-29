@@ -1,0 +1,139 @@
+<html ng-app="app">
+ 
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js" ></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.6/angular.min.js'></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
+    <script src='https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js'></script>
+
+  </head>
+  
+ 
+  <body>
+    
+      <div ng-controller="ctrl">
+       
+         <div ng-repeat="(id,item) in data" >
+            
+         <div ng-if="idea_index == $index " 
+     > <!--Put && item.Seen != 'True' to loop through correctly-->
+           <input type = "text"
+                  ng-keydown="onKeyPress($event)"
+                  ng-keyup = "onKeyUp($event)"
+                  focus="true"
+                  />
+           
+           <div ng-keypress = "keyPress($event)">
+            <strong >{{item.idea}}</strong>
+          </div>
+            <button  ng-click="LikeItem($event,id)">Like</button> 
+          <!--  <button  >Like</button>-->
+
+            <button  ng-click="DislikeItem(id)">Dislike</button>
+        </div>
+
+        </div>
+         
+        <hr>
+        <button ng-click="next()">Next</button>
+        <button
+          ng-click="previous()"
+        >Previous</button>
+        <hr>Your Choice: {{item.idea}}
+      
+         
+    </div>
+    
+        
+</body>
+<script>
+angular.module("app", ["firebase","ui.utils"])
+ 
+ 
+.controller("ctrl", 
+   function($scope, $firebase) {
+ 
+  
+  var ref = new Firebase("https://crowdfluttr.firebaseio.com/ideas");
+   
+    var sync = $firebase(ref)
+    $scope.data = sync.$asArray();
+
+    $scope.idea_index = 0;
+  
+     $scope.next = function(e) {     
+         $scope.idea_index ++;
+    };
+     $scope.previous = function(e) {
+       $scope.idea_index --;
+    };
+  //http://stackoverflow.com/questions/25087576/angularjs-ng-repeat-show-one-item-at-a-time
+    
+    
+    $scope.LikeItem = function ($event,id) {
+        $scope.data[id].Like = 'True';
+        $scope.data[id].Seen = 'True';
+        $scope.data.$save(id);
+        $event.preventDefault();
+
+        
+};
+    $scope.DislikeItem = function (id) {
+        $scope.data[id].Like = 'False';
+        $scope.data[id].Seen = 'True';
+        $scope.data.$save(id);
+};
+    
+   
+ 
+  
+    $scope.onKeyPress = function (event) {
+      var key = event.keyCode;
+      var num=1;
+      switch(key){
+        case 37:
+            $scope.idea_index --;   
+         break;
+        case 39:
+         
+           $scope.idea_index ++;
+         break;
+      }
+    };
+ 
+   $scope.keyPress = function(e){
+         
+   };
+    
+    
+ 
+ });
+var myapp = angular.module('sampleapp', [ ]);
+
+myapp.controller('samplecontoller', function ($scope) {
+
+  
+});
+
+// Common directive for Focus
+angular.module('app').directive('focus',
+  function($timeout) {
+    return {
+      scope : {
+        trigger : '@focus'
+      },
+      link : function(scope, element) {
+        scope.$watch('trigger', function(value) {
+          if (value === "true") {
+            $timeout(function() {
+              element[0].focus();
+            });
+          }
+        });
+      }
+    };
+  }
+); 
+</script>
+</html>
