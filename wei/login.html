@@ -21,18 +21,26 @@ var ref = new Firebase("https://crowdfluttr.firebaseio.com/ideas");
 
 	  $scope.loginGoogle = function() {
 		auth.login('google', {
-		  rememberMe: false
+		  rememberMe: "sessiononly"
 		});
 		$scope.username = user.displayName;
-		$scope.userid = user.userid;
-	  }
+		$scope.userid = user.id;
+		$scope.gmail = user.email;
+		$scope.uniqueid = user.uid;
+	  };
 	  $scope.loginFacebook = function() {
 		auth.login('facebook', {
-		  rememberMe: false
+		  rememberMe: "sessiononly"
 		});
 		$scope.username = user.displayName;
-		$scope.userid = user.userid;
-	  }
+		$scope.userid = user.id;
+		$scope.gmail = user.email;
+		$scope.uniqueid = user.uid;
+
+	  };
+	  $scope.logout = function() {
+		ref.unauth();
+	  };
 
 
 
@@ -45,8 +53,11 @@ var ref = new Firebase("https://crowdfluttr.firebaseio.com/ideas");
 	Welcome, 
 {{username}}<br>
 {{userid}}<br>
+{{gmail}}<br>
+{{uniqueid}}<br>
 <br>
 <a ng-href="#" ng-click="loginGoogle()">Login with Google</a><br>
 <a ng-href="#" ng-click="loginFacebook()">Login with Facebook</a><br>
+<a ng-href="#" ng-click="logout()">Logout</a>
 </body>
 </html>

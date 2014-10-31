@@ -99,6 +99,51 @@
 		z-index: 999;
 	}
 
+.classname {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+	background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+	background-color:#ffc477;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0;
+	border:1px solid #eeb44f;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #cc9f52;
+}
+.classname:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
+	background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+	background-color:#fb9e25;
+}.classname:active {
+	position:relative;
+	top:1px;
+}
+/* This button was generated using CSSButtonGenerator.com */
 	</style>
 </head>
 <body>
@@ -129,8 +174,10 @@
 -->
 <ul id="menu">
 	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Intro</a></li>
-	<li data-menuanchor="secondPage"><a href="#secondPage">Sign up</a></li>
-	<li data-menuanchor="3rdPage"><a href="#3rdPage">Log In</a></li>
+	<li ng-hide="loggedIn" data-menuanchor="secondPage"><a href="#secondPage">Sign up</a></li>
+	<li ng-hide="loggedIn" data-menuanchor="3rdPage"><a href="#3rdPage">Log In</a></li>
+	<li ng-show="loggedIn"><a ng-href="#" ng-click="logout()">Logout</a></li>
+	<li ng-show="loggedIn">Welcome, {{uniqueid}}</li>
 </ul>
 
 <div id="header">Header</div>
@@ -144,7 +191,9 @@
 
   <table id="intro">
     <tr>
+
       <td><a href="http://www.crowdfluttr.com"><img id="logosm" src="images/logomed.png" alt="Crowdfluttr"/></a></td>
+
       <td>
         <div class="textelement">
           <h1>Welcome to CrowdFluttr</h1>
@@ -182,12 +231,17 @@
 			<button type='button'> Sign Up for Entry Access</button>
 		</div>
 	</div>
-	<div class="section" id="section2">
+	<div ng-hide="loggedIn" class="section" id="section2">
 		<div class="intro">
 			<h1>Login</h1>
+			<!--
 			<input type='text' id='email' placeholder='Email'> </input>
 			<input type='password' id='password' placeholder='Password'> </input>
 			<button type='button'> Login</button>
+			-->
+			<h4>Login with:</h4><br>
+			<a ng-href="#" class="classname" ng-click="loginGoogle()">GOOGLE</a> &nbsp; &nbsp; &nbsp; 
+			<a ng-href="#" class="classname" ng-click="loginFacebook()">FACEBOOK</a><br>
 		</div>
 	</div>
 </div>
