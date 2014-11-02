@@ -1,94 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<html ng-app="fluttrApp">
 <head>
-  <meta charset="utf-8">
-  <title>CrowdFluttr</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
-    <script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
-    <script src="js/module.js"></script>
 
-  </head>  <body ng-controller="fluttrCtrl">
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">CrowdFluttr</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
+  <link rel="shortcut icon" href="design/images/logosm.png">
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Welcome to Crowdfluttr.</h1>
-        <p>Share an idea, get global feedback to make it better, and allow passionate people interested in bringing the idea to life help you make it happen.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
+  <link type='text/css' rel='stylesheet' href='css/style.css' />
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="text-center">Random idea</h2>
-          </div>
-      </div>
-      
-          <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Create your idea now:</h2>
-{{displayName}}
-<br>
-{{ title }}
-<br>
-{{ desc }}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>CrowdFluttr</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="fullPage looping demo." />
+	<meta name="keywords"  content="fullpage,jquery,looping,loop,loopTop,loopBottom,demo" />
+	<meta name="Resource-type" content="Document" />
 
 
-<form role="form" ng-submit="addIdea(title)">
-  <div class="form-group">
-    <label for="idea-title">Title</label>
-    <input type="text" class="form-control" ng-model="title" id="idea-title" placeholder="What's your idea called?">
-  </div>
+	<link rel="stylesheet" type="text/css" href="js/fullPage/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="js/fullPage/examples/examples.css" />
 
-  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-</form>
-        </div>
-      </div>
-      
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script> 
+	<![endif]-->
+<!--
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+-->
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	
+	
+	<script type="text/javascript" src="js/fullPage/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="js/fullPage/examples/examples.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				//sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],Dark teal #38a9e1 Light teal #7ccced
+				sectionsColor: ['#f8b040', '#7ccced', '#38a9e1'],
+				anchors: ['firstPage', 'secondPage', '3rdPage'],
+				menu: '#menu',
+				loopTop: true,
+				loopBottom: true
+			});
+		});
+	</script>
+	<style>
 
-      <hr>
+	/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 5em;
+		font-family: arial,helvetica;
+		color: #fff;
+		margin:0;
+		padding:0;
+	}
+	.intro p{
+		color: #fff;
+	}
 
-      <footer>
-        <p>&copy; Company 2014</p>
-      </footer>
-    </div> <!-- /container -->
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+	}
 
-  </body>
+	/* Fixed header and footer.
+	* --------------------------------------- */
+	#header, #footer{
+		position:fixed;
+		height: 50px;
+		display:block;
+		width: 100%;
+		background: #333;
+		z-index:9;
+		text-align:center;
+		color: #f2f2f2;
+		padding: 20px 0 0 0;
+	}
+
+	#header{
+		top:0px;
+	}
+	#footer{
+		bottom:0px;
+	}
+
+
+	/* Bottom menu
+	* --------------------------------------- */
+	#infoMenu {
+		bottom: 80px;
+	}
+	#infoMenu li a {
+		color: #fff;
+		z-index: 999;
+	}
+
+.classname {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+	background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+	background-color:#ffc477;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0;
+	border:1px solid #eeb44f;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #cc9f52;
+}
+.classname:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
+	background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+	background-color:#fb9e25;
+}.classname:active {
+	position:relative;
+	top:1px;
+}
+/* This button was generated using CSSButtonGenerator.com */
+	</style>
+</head>
+<body>
+
+
+<!--
+<select id="demosMenu">
+  <option id="background" selected>Choose Demo</option>
+  <option id="background">Background images</option>
+  <option id="backgroundVideo">Background video</option>
+  <option id="gradientBackgrounds">Gradient backgrounds</option>
+  <option id="looping">Looping</option>
+  <option id="noAnchor">No anchor links</option>
+  <option id="scrollingSpeed">Scrolling speed</option>
+  <option id="easing">Easing</option>
+  <option id="callbacks">Callbacks</option>
+  <option id="css3">CSS3</option>
+  <option id="continuous">Continuous scrolling</option>
+  <option id="normalScroll">Normal scrolling</option>
+  <option id="scrolling">Scroll inside sections and slides</option>
+  <option id="navigationV">Vertical navigation dots</option>
+  <option id="navigationH">Horizontal navigation dots</option>
+  <option id="fixedHeaders">Fixed headers</option>
+  <option id="apple">Apple iPhone demo (animations)</option>
+  <option id="oneSection">One Single Section</option>
+  <option id="fullVideos">Full background videos</option>
+</select>
+-->
+<ul id="menu">
+	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Intro</a></li>
+	<li ng-hide="loggedIn" data-menuanchor="secondPage"><a href="#secondPage">Sign up</a></li>
+	<li ng-hide="loggedIn" data-menuanchor="3rdPage"><a href="#3rdPage">Log In</a></li>
+	<li ng-show="loggedIn"><a ng-href="#" ng-click="logout()">Logout</a></li>
+	<li ng-show="loggedIn">Welcome, {{uniqueid}}</li>
+</ul>
+
+<div id="header">Header</div>
+<div id="footer">Footer</div>
+
+<div id="fullpage">
+	<div class="section " id="section0">
+		 <div class="slide" id="slide1">
+		   <a href="http://www.crowdfluttr.com"><img id="crowdfluttr" src="images/crowdfluttr.jpg" alt="Crowdfluttr"/></a>
+
+
+  <table id="intro">
+    <tr>
+
+      <td><a href="http://www.crowdfluttr.com"><img id="logosm" src="images/logomed.png" alt="Crowdfluttr"/></a></td>
+
+      <td>
+        <div class="textelement">
+          <h1>Welcome to CrowdFluttr</h1>
+			<p>Share your idea, get global feedback to make it better, and allow passionate people interested in bring the idea to life help make it happen.
+		</div>
+      </td>
+    </tr>
+  </table>
+
+		 <!--
+			<div class="intro">
+				<h1>How to do it</h1>
+				<p>
+					 You just need to move your header and footer outside the plugin main wrap.
+				This way it won't move on scrolling. Take a look at the source code of this page.
+				</p>
+			</div>
+			-->
+		</div>
+
+	    <div class="slide" id="slide2">
+			<h1>What's your idea?</h1>
+			<!--
+			<img src="imgs/iphone-blue.png" alt="iphone" id="iphone-two" />
+			-->
+			<input type='text' id='ideacontent'> </input>
+			<button type='button'> MAKE IT HAPPEN</button>
+		</div>
+	</div>
+	<div class="section" id="section1">
+		<div class="intro">
+			<h1>Sign up</h1>
+			<input type='text' id='username' placeholder='Name'> </input>
+			<input type='text' id='email' placeholder='Email'> </input>
+			<button type='button'> Sign Up for Entry Access</button>
+		</div>
+	</div>
+	<div ng-hide="loggedIn" class="section" id="section2">
+		<div class="intro">
+			<h1>Login</h1>
+			<!--
+			<input type='text' id='email' placeholder='Email'> </input>
+			<input type='password' id='password' placeholder='Password'> </input>
+			<button type='button'> Login</button>
+			-->
+			<h4>Login with:</h4><br>
+			<a ng-href="#" class="classname" ng-click="loginGoogle()">GOOGLE</a> &nbsp; &nbsp; &nbsp; 
+			<a ng-href="#" class="classname" ng-click="loginFacebook()">FACEBOOK</a><br>
+		</div>
+	</div>
+</div>
+
+</body>
 </html>

@@ -1,0 +1,9 @@
+{
+  "firebase": "crowdfluttr",
+  "public": "wei",
+  "ignore": [
+    "firebase.json",
+    ".*",
+    "**/node_modules/**"
+  ]
+}
