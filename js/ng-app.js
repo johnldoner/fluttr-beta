@@ -8,7 +8,7 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 	  $scope.loginGoogle = function() {
 		auth.login('google', {
 		 // rememberMe: "sessiononly"
-		 rememberMe: true;
+		 rememberMe: true
 		});
 		$scope.username = user.displayName;
 		$scope.userid = user.id;
@@ -19,7 +19,7 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 	  $scope.loginFacebook = function() {
 		auth.login('facebook', {
 		 // rememberMe: "sessiononly"
-		 rememberMe: true;
+		 rememberMe: true
 		});
 		$scope.username = user.displayName;
 		$scope.userid = user.id;
