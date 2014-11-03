@@ -1,6 +1,24 @@
 
 var app = angular.module("fluttrApp", ["firebase"]);
 
+	// a factory to create a re-usable Profile object
+// we pass in a username and get back their synchronized data as an object
+app.factory("Profile", ["$firebase", function($firebase) {
+  return function(username) {
+    // create a reference to the user's profile
+    var ref = new Firebase("https://crowdfluttr.firebaseio.com/users/").child(username);
+    // return it as a synchronized object
+    return $firebase(ref).$asObject();
+  }
+}]);
+app.controller("ProfileCtrl", ["$scope", "Profile",
+  function($scope, Profile) {
+    // create a 3-way binding to our Profile as $scope.profile
+//    Profile("physicsmarie").$bindTo($scope, "profile");
+ Profile("hello").$bindTo($scope, "profile");
+  }
+]);
+
 app.controller("fluttrCtrl", function($scope, $firebase) {
 
 	var ref = new Firebase("https://crowdfluttr.firebaseio.com/ideas");
