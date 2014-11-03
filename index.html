@@ -33,8 +33,6 @@
 	</script>
 	<style>
 
-	/* Style for our header texts
-	* --------------------------------------- */
 	h1{
 		font-size: 5em;
 		font-family: arial,helvetica;
@@ -46,14 +44,10 @@
 		color: #fff;
 	}
 
-	/* Centered texts in each section
-	* --------------------------------------- */
 	.section{
 		text-align:center;
 	}
 
-	/* Fixed header and footer.
-	* --------------------------------------- */
 	#header, #footer{
 		position:fixed;
 		height: 50px;
@@ -73,9 +67,6 @@
 		bottom:0px;
 	}
 
-
-	/* Bottom menu
-	* --------------------------------------- */
 	#infoMenu {
 		bottom: 80px;
 	}
@@ -128,35 +119,10 @@
 	position:relative;
 	top:1px;
 }
-/* This button was generated using CSSButtonGenerator.com */
 	</style>
 </head>
 <body>
 
-
-<!--
-<select id="demosMenu">
-  <option id="background" selected>Choose Demo</option>
-  <option id="background">Background images</option>
-  <option id="backgroundVideo">Background video</option>
-  <option id="gradientBackgrounds">Gradient backgrounds</option>
-  <option id="looping">Looping</option>
-  <option id="noAnchor">No anchor links</option>
-  <option id="scrollingSpeed">Scrolling speed</option>
-  <option id="easing">Easing</option>
-  <option id="callbacks">Callbacks</option>
-  <option id="css3">CSS3</option>
-  <option id="continuous">Continuous scrolling</option>
-  <option id="normalScroll">Normal scrolling</option>
-  <option id="scrolling">Scroll inside sections and slides</option>
-  <option id="navigationV">Vertical navigation dots</option>
-  <option id="navigationH">Horizontal navigation dots</option>
-  <option id="fixedHeaders">Fixed headers</option>
-  <option id="apple">Apple iPhone demo (animations)</option>
-  <option id="oneSection">One Single Section</option>
-  <option id="fullVideos">Full background videos</option>
-</select>
--->
 <ul id="menu">
 	<li data-menuanchor="Page1" class="active"><a href="#Page1">Intro</a></li>
 	<li ng-hide="loggedIn" data-menuanchor="Page2"><a href="#Page2">Sign up</a></li>
@@ -188,22 +154,11 @@
     </tr>
   </table>
 
-		 <!--
-			<div class="intro">
-				<h1>How to do it</h1>
-				<p>
-					 You just need to move your header and footer outside the plugin main wrap.
-				This way it won't move on scrolling. Take a look at the source code of this page.
-				</p>
-			</div>
-			-->
 		</div>
 
 	    <div class="slide" id="slide2">
 			<h1>What's your idea?</h1>
-			<!--
-			<img src="imgs/iphone-blue.png" alt="iphone" id="iphone-two" />
-			-->
+
 			<input type='text' id='ideacontent'> </input>
 			<button type='button'> MAKE IT HAPPEN</button>
 		</div>
@@ -219,11 +174,6 @@
 	<div ng-hide="loggedIn" class="section" id="section2">
 		<div class="intro">
 			<h1>Login</h1>
-			<!--
-			<input type='text' id='email' placeholder='Email'> </input>
-			<input type='password' id='password' placeholder='Password'> </input>
-			<button type='button'> Login</button>
-			-->
 			<h4>Login with:</h4><br>
 			<a ng-href="#" class="classname" ng-click="loginGoogle()">GOOGLE</a> &nbsp; &nbsp; &nbsp; 
 			<a ng-href="#" class="classname" ng-click="loginFacebook()">FACEBOOK</a><br>
