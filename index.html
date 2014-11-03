@@ -3,9 +3,9 @@
 
 <head>
 
-  <link rel="shortcut icon" href="design/images/logosm.png">
+  <link rel="shortcut icon" href="images/logosm.png">
 
-  <link type='text/css' rel='stylesheet' href='design/style.css' />
+  <link type='text/css' rel='stylesheet' href='css/style.css' />
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>CrowdFluttr</title>
@@ -26,7 +26,7 @@
 	<script src="js/jquery-ui.js"></script>
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	
+
 
 	<script type="text/javascript" src="js/fullPage/jquery.fullPage.js"></script>
 	<script type="text/javascript" src="js/fullPage/examples/examples.js"></script>
@@ -64,7 +64,7 @@
 	}
 
 	/* Fixed header and footer.
-	* --------------------------------------- */
+ 
 	#header, #footer{
 		position:fixed;
 		height: 50px;
@@ -83,7 +83,7 @@
 	#footer{
 		bottom:0px;
 	}
-
+*/
 
 	/* Bottom menu
 	* --------------------------------------- */
@@ -142,7 +142,7 @@
 /* This button was generated using CSSButtonGenerator.com */
 	</style>
 </head>
-<body ng-controller="fluttrCtrl">>
+<body ng-controller="fluttrCtrl">
 
 
 
@@ -158,18 +158,18 @@
 	<li ng-show="loggedIn"><a ng-href="#" ng-click="logout()">Logout</a></li>
 	<li ng-show="loggedIn">Welcome, {{uniqueid}}</li>
 </ul>
-
+<!--
 <div id="header">Header</div>
 <div id="footer">Footer</div>
-
+-->
 <div id="fullpage">
 	<div class="section " id="section0">
 		 <div class="slide" id="slide1">
-		   <a href="http://www.crowdfluttr.com"><img id="crowdfluttr" src="design/images/crowdfluttr.jpg" alt="Crowdfluttr"/></a>
+		   <a href="http://www.crowdfluttr.com"><img id="crowdfluttr" src="images/crowdfluttr.jpg" alt="Crowdfluttr"/></a>
 
   <table id="intro">
     <tr>
-      <td><a href="http://www.crowdfluttr.com"><img id="logosm" src="design/images/logomed.png" alt="Crowdfluttr"/></a></td>
+      <td><a href="http://www.crowdfluttr.com"><img id="logosm" src="images/logomed.png" alt="Crowdfluttr"/></a></td>
       <td>
         <div class="textelement">
           <h1>Welcome to CrowdFluttr</h1>
