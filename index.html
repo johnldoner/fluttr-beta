@@ -148,8 +148,13 @@
 
 <ul id="menu">
 	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Intro</a></li>
+	<!--
 	<li ng-hide="loggedIn" data-menuanchor="secondPage"><a href="#secondPage">Sign up</a></li>
 	<li ng-hide="loggedIn" data-menuanchor="3rdPage"><a href="#3rdPage">Log In</a></li>
+	-->
+	<li ng-hide="loggedIn"><a ng-href="#" ng-click="loginGoogle()">Login with Google</a></li>
+	<li ng-hide="loggedIn"><a ng-href="#" ng-click="loginFacebook()">Login with Facebook</a></li>
+
 	<li ng-show="loggedIn"><a ng-href="#" ng-click="logout()">Logout</a></li>
 	<li ng-show="loggedIn">Welcome, {{uniqueid}}</li>
 </ul>
@@ -164,7 +169,7 @@
 
   <table id="intro">
     <tr>
-      <td><a href="http://www.crowdfluttr.cosm"><img id="logosm" src="design/images/logomed.png" alt="Crowdfluttr"/></a></td>
+      <td><a href="http://www.crowdfluttr.com"><img id="logosm" src="design/images/logomed.png" alt="Crowdfluttr"/></a></td>
       <td>
         <div class="textelement">
           <h1>Welcome to CrowdFluttr</h1>
@@ -186,6 +191,9 @@
 			<button type='submit'> MAKE IT HAPPEN</button>
 		</form>
 	</div>
+
+<!--
+
 	<div class="section" id="section1">
 		<div class="intro">
 			<h1>Sign up</h1>
@@ -203,6 +211,7 @@
 			<a ng-href="#" class="classname" ng-click="loginFacebook()">FACEBOOK</a><br>
 		</div>
 	</div>
+-->
 </div>
 
 </body>
