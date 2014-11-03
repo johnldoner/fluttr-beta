@@ -35,12 +35,6 @@ angular.module("app", ["firebase"])
    
     var sync = $firebase(ref)
     $scope.data = sync.$asArray();
-
-    $scope.idea_index = 0;
-  
-     $scope.next = function() {
-       $scope.idea_index ++;
-    };
  
   //http://stackoverflow.com/questions/25087576/angularjs-ng-repeat-show-one-item-at-a-time
   
