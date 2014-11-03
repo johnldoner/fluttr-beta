@@ -17,8 +17,12 @@ git remote add origin https://github.com/johnldoner/fluttr.git
 
 ```
 git add *
-git commit -m "moved to crowdfluttr.firebase"
+git commit -m "restructured"
 git push -f origin master
+
+git add -A 
+git commit -m 'deleting directory' 
+
  ```
 
 

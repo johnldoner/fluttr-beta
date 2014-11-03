@@ -6,32 +6,17 @@
   <link rel="shortcut icon" href="design/images/logosm.png">
 
   <link type='text/css' rel='stylesheet' href='css/style.css' />
-
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>CrowdFluttr</title>
 	<meta name="author" content="Alvaro Trigo Lopez" />
 	<meta name="description" content="fullPage looping demo." />
 	<meta name="keywords"  content="fullpage,jquery,looping,loop,loopTop,loopBottom,demo" />
 	<meta name="Resource-type" content="Document" />
-
-
 	<link rel="stylesheet" type="text/css" href="js/fullPage/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="js/fullPage/examples/examples.css" />
-
-	<!--[if IE]>
-		<script type="text/javascript">
-			 var console = { log: function() {} };
-		</script> 
-	<![endif]-->
-<!--
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
--->
 	<script src="js/jquery-ui.js"></script>
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	
-	
 	<script type="text/javascript" src="js/fullPage/jquery.fullPage.js"></script>
 	<script type="text/javascript" src="js/fullPage/examples/examples.js"></script>
 	<script type="text/javascript">
@@ -39,7 +24,7 @@
 			$('#fullpage').fullpage({
 				//sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],Dark teal #38a9e1 Light teal #7ccced
 				sectionsColor: ['#f8b040', '#7ccced', '#38a9e1'],
-				anchors: ['firstPage', 'secondPage', '3rdPage'],
+				anchors: ['Page1', 'Page2', 'Page3'],
 				menu: '#menu',
 				loopTop: true,
 				loopBottom: true
@@ -173,9 +158,9 @@
 </select>
 -->
 <ul id="menu">
-	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Intro</a></li>
-	<li ng-hide="loggedIn" data-menuanchor="secondPage"><a href="#secondPage">Sign up</a></li>
-	<li ng-hide="loggedIn" data-menuanchor="3rdPage"><a href="#3rdPage">Log In</a></li>
+	<li data-menuanchor="Page1" class="active"><a href="#Page1">Intro</a></li>
+	<li ng-hide="loggedIn" data-menuanchor="Page2"><a href="#Page2">Sign up</a></li>
+	<li ng-hide="loggedIn" data-menuanchor="Page3"><a href="#Page3">Log In</a></li>
 	<li ng-show="loggedIn"><a ng-href="#" ng-click="logout()">Logout</a></li>
 	<li ng-show="loggedIn">Welcome, {{uniqueid}}</li>
 </ul>
