@@ -74,7 +74,7 @@
         }
         .bricon
         {
-            background: url(DEV/Jssor.Slider.FullPack/img/browser-icons.png);
+            background: url(js/Jssor.Slider.FullPack/img/browser-icons.png);
         }
     
     <!-- jssor slider bullet navigator skin 01 -->
@@ -114,7 +114,7 @@
             position: absolute;
             cursor: pointer;
             display: block;
-            background: url(DEV/Jssor.Slider.FullPack/img/a17.png) no-repeat;
+            background: url(../js/Jssor.Slider.FullPack/img/a17.png) no-repeat;
             overflow:hidden;
         }
         .jssora05l { background-position: -10px -40px; }
@@ -138,7 +138,7 @@
                                 position: absolute;
                                 cursor: pointer;
                                 display: block;
-                                background: url(DEV/Jssor.Slider.FullPack/img/a02.png) no-repeat;
+                                background: url(../js/Jssor.Slider.FullPack/img/a02.png) no-repeat;
                                 overflow:hidden;
                             }
                             .jssora02l { background-position: -3px -33px; }
@@ -219,7 +219,7 @@
                     position: absolute;
                     cursor: pointer;
                     display: block;
-                    background: url(DEV/Jssor.Slider.FullPack/img/a20.png) no-repeat;
+                    background: url(../js/Jssor.Slider.FullPack/img/a20.png) no-repeat;
                     overflow:hidden;
                 }
                 .jssora20l { background-position: -3px -33px; }
@@ -240,7 +240,7 @@
                 */
                 .jssorb03 div, .jssorb03 div:hover, .jssorb03 .av
                 {
-                    background: url(DEV/Jssor.Slider.FullPack/img/b03.png) no-repeat;
+                    background: url(../js/Jssor.Slider.FullPack/img/b03.png) no-repeat;
                     overflow:hidden;
                     cursor: pointer;
                 }
@@ -251,3 +251,24 @@
 
                 /* this line can be removed, but it really helps in case of css conflicts in your page */
                 .sliderc div { position: relative; margin: 0px; padding: 0px; }
+
+          
+                /* jssor slider bullet navigator skin 03 css */
+                /*
+                .jssorb03 div           (normal)
+                .jssorb03 div:hover     (normal mouseover)
+                .jssorb03 .av           (active)
+                .jssorb03 .av:hover     (active mouseover)
+                .jssorb03 .dn           (mousedown)
+                */
+                .jssorb03 div, .jssorb03 div:hover, .jssorb03 .av
+                {
+                    background: url(../js/Jssor.Slider.FullPack/img/b03.png) no-repeat;
+                    overflow:hidden;
+                    cursor: pointer;
+                }
+                .jssorb03 div { background-position: -5px -4px; }
+                .jssorb03 div:hover, .jssorb03 .av:hover { background-position: -35px -4px; }
+                .jssorb03 .av { background-position: -65px -4px; }
+                .jssorb03 .dn, .jssorb03 .dn:hover { background-position: -95px -4px; }
+                  

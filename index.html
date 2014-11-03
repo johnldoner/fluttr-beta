@@ -16,6 +16,7 @@
 
 
 	<link rel="stylesheet" type="text/css" href="js/fullPage/jquery.fullPage.css" />
+
 	<link rel="stylesheet" type="text/css" href="js/fullPage/examples/examples.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
@@ -43,12 +44,21 @@
 		});
 	</script>
 	<style>
-
+	@font-face {
+    font-family: ProximaNova;
+    src: url(fonts/ProximaNovaRegular.otf);
+    /* font-style: italic;
+    */
+}
+body{
+	font-family:ProximaNova,sans-serif;
+}
 	/* Style for our header texts
 	* --------------------------------------- */
 	h1{
 		font-size: 5em;
-		font-family: arial,helvetica;
+		font-family:ProximaNova,sans-serif;
+		/*Proxima Nova*/
 		color: #fff;
 		margin:0;
 		padding:0;
@@ -119,7 +129,7 @@
 	border:1px solid #eeb44f;
 	display:inline-block;
 	color:#ffffff;
-	font-family:Arial;
+	font-family:ProximaNova;
 	font-size:15px;
 	font-weight:bold;
 	font-style:normal;

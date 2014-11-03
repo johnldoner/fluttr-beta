@@ -3,8 +3,8 @@ ul, ol, li, dl, dd, dt, blockquote, fieldset,
 legend, label, input, textarea { margin: 0; padding: 0; border: 0; }
 
 @font-face {
-    font-family: motoroil;
-    src: url(fonts/motoroil.ttf);
+    font-family: ProximaNova;
+    src: url(fonts/ProximaNovaRegular.otf);
 }
 
 body {
@@ -16,7 +16,7 @@ body {
  }
 
  h1 {
- 	font-family: motoroil, Trebuchet;
+ 	font-family: ProximaNova;
  	font-size: 36px;
  	color: #38a9e1;
 }
@@ -24,18 +24,23 @@ body {
 #crowdfluttr {
 	height: 80px;
 	width: auto;
-	margin-left: 18%;
+	float:right;
+	margin-top: -12%;
 }
 
 #logosm {
 	height: 280px;
 	width: auto;
+	/*  
+	border-style: solid;
+    border-width: 2px;
+   border-color: #7ccced;
+
+     border-radius: 650px;
+*/
 }
 
-.smallimage {
-	height: 150px;
-	width: auto;
-}
+
 
 .icon {
 	height: 40px;
@@ -49,30 +54,9 @@ body {
 	margin-right: 35%;
 }
 
-#more {
-	float: left;
-	margin-left: 25%;
-	margin-top: 20%;
-	margin-right: 27%;
-}
 
-#contact {
-	float: left;
-	margin-left: 49%;
-	margin-top: 14%;
-}
-
-#copyright {
-	text-align: center;
-	margin-top: 15%;
-	margin-bottom: 2%;
-	color: white;
-}
 
 .textelement {
 	padding-left: 2%;
 }
 
-.icons {
-	padding-left: 60%;
-}

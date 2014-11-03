@@ -5,6 +5,11 @@
  *
  * Copyright (C) 2013 alvarotrigo.com - A project by Alvaro Trigo
  */
+ @font-face {
+    font-family: ProximaNova;
+    src: url(../../fonts/ProximaNovaRegular.otf);
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -159,7 +164,8 @@ html, body {
     top: -2px;
     color: #fff;
     font-size: 14px;
-    font-family: arial, helvetica, sans-serif;
+    font-family: ProximaNova,  sans-serif;
+    
     white-space: nowrap;
     max-width: 220px;
 }

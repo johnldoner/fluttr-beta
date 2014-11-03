@@ -70,3 +70,26 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 		$scope.ideas = sync.$asArray();
 	});
 });
+/*
+app.config(function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      controller:'ListCtrl',
+      templateUrl:'list.html'
+    })
+    .when('/edit/:projectId', {
+      controller:'EditCtrl',
+      templateUrl:'detail.html'
+    })
+    .when('/new', {
+      controller:'CreateCtrl',
+      templateUrl:'bootstrap.html'
+    })
+    .otherwise({
+      redirectTo:'/'
+    });
+})
+app.controller('CreateCtrl', function($scope, Projects) {
+  $scope.projects = Projects;
+})
+*/
