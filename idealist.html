@@ -37,8 +37,6 @@ angular.module("app", ["firebase"])
     $scope.data = sync.$asArray();
  
   //http://stackoverflow.com/questions/25087576/angularjs-ng-repeat-show-one-item-at-a-time
-  
-    
     $scope.LikeItem = function (id) {
         $scope.data[id].Like = 'True';
         $scope.data[id].Seen = 'True';
