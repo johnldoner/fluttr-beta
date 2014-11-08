@@ -1,95 +1,56 @@
 
 var app = angular.module("fluttrApp", ["firebase"]);
 
-	// a factory to create a re-usable Profile object
-// we pass in a username and get back their synchronized data as an object
-app.factory("Profile", ["$firebase", function($firebase) {
-  return function(username) {
-    // create a reference to the user's profile
-    var ref = new Firebase("https://crowdfluttr.firebaseio.com/users/").child(username);
-    // return it as a synchronized object
-    return $firebase(ref).$asObject();
-  }
-}]);
-app.controller("ProfileCtrl", ["$scope", "Profile",
-  function($scope, Profile) {
-    // create a 3-way binding to our Profile as $scope.profile
-//    Profile("physicsmarie").$bindTo($scope, "profile");
- Profile("hello").$bindTo($scope, "profile");
-  }
-]);
-
 app.controller("fluttrCtrl", function($scope, $firebase) {
 
-	var ref = new Firebase("https://crowdfluttr.firebaseio.com/ideas");
-	var auth = new FirebaseSimpleLogin(ref, function(error, user) {
-	  $scope.loginGoogle = function() {
-		auth.login('google', {
-		 // rememberMe: "sessiononly"
-		 rememberMe: true
+	var ref = new Firebase("https://crowdfluttr.firebaseio.com/users");
+	
+	// Login using Facebook
+  	$scope.loginFacebook = function() {
+	    console.log("Got into facebook login");
+	    ref.authWithOAuthPopup("facebook", function(error, authData) { 
+	    	$scope.loggedIn = true;
+	    	$scope.uniqueid = authData.first_name;
+	    	 }, {
+		  remember: "sessionOnly",
+		  scope: "email,first_name"
 		});
-		$scope.username = user.displayName;
-		$scope.userid = user.id;
-		$scope.gmail = user.email;
-		$scope.uniqueid = user.uid;
-		$scope.loggedIn = true;
-	  };
-	  $scope.loginFacebook = function() {
-		auth.login('facebook', {
-		 // rememberMe: "sessiononly"
-		 rememberMe: true
-		});
-		$scope.username = user.displayName;
-		$scope.userid = user.id;
-		$scope.gmail = user.email;
-		$scope.uniqueid = user.uid;
-		$scope.loggedIn = true;
+	};
 
-	  };
-	  $scope.logout = function() {
+  	// Login using Google
+  	$scope.loginGoogle = function() {
+	    console.log("Got into google login");
+	    ref.authWithOAuthPopup("google", function(error, authData) { 
+	    	$scope.loggedIn = true;
+	    	$scope.uniqueid = authData.uid;
+	    	    	 }, {
+		  remember: "sessionOnly",
+		  scope: "email"
+		});
+	};
+
+
+	 $scope.logout = function() {
 		ref.unauth();
 		$scope.loggedIn = false;
 	  };
+
 		$scope.addIdea = function(title, id, displayName) {
+			$scope.displayName = user.displayName;
+			$scope.uid = user.uid;
 
-		$scope.displayName = user.displayName;
-		$scope.uid = user.uid;
-
-			$scope.ideas.$add(
-				{
-					"title": title, 
-					"user": user.uid,
-					"timestamp": Date.now()
-				}
-				);
-			//The user id needs to be pulled and we need to post
-			//the idea id generated here to the user branch
-			$scope.title = '';
+				$scope.ideas.$add(
+					{
+						"title": title, 
+						"user": user.uid,
+						"timestamp": Date.now()
+					}
+					);
+				//The user id needs to be pulled and we need to post
+				//the idea id generated here to the user branch
+				$scope.title = '';
 		};
 		var sync = $firebase(ref);
 		$scope.ideas = sync.$asArray();
-	});
+
 });
-/*
-app.config(function($routeProvider) {
-  $routeProvider
-    .when('/', {
-      controller:'ListCtrl',
-      templateUrl:'list.html'
-    })
-    .when('/edit/:projectId', {
-      controller:'EditCtrl',
-      templateUrl:'detail.html'
-    })
-    .when('/new', {
-      controller:'CreateCtrl',
-      templateUrl:'bootstrap.html'
-    })
-    .otherwise({
-      redirectTo:'/'
-    });
-})
-app.controller('CreateCtrl', function($scope, Projects) {
-  $scope.projects = Projects;
-})
-*/
