@@ -163,10 +163,12 @@ body{
 <a href="http://www.crowdfluttr.com"><img id="crowdfluttr" src="images/crowdfluttr.jpg" alt="Crowdfluttr"/></a>
 
 	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Intro</a></li>
-<!--
+	<!--
+	<li ng-hide="loggedIn" data-menuanchor="secondPage"><a href="#secondPage">Sign up</a></li>
+	<li ng-hide="loggedIn" data-menuanchor="3rdPage"><a href="#3rdPage">Log In</a></li>
+	-->
 	<li ng-hide="loggedIn"><a ng-href="#" ng-click="loginGoogle()">Login with Google</a></li>
 	<li ng-hide="loggedIn"><a ng-href="#" ng-click="loginFacebook()">Login with Facebook</a></li>
-	-->
 	<li ><a href="signup.html">Sign up</a></li>
 	<li ng-show="loggedIn"><a ng-href="#" ng-click="logout()">Logout</a></li>
 	<li ng-show="loggedIn">Welcome, {{uniqueid}}</li>
@@ -202,15 +204,7 @@ body{
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-default btn-block" type="submit">Login</button>
-<br>
-
-	<button class="btn btn-danger" ng-href="#" ng-click="loginGoogle()">Login with Google</button>
-	<button class="btn btn-primary" ng-href="#" ng-click="loginFacebook()">Login with Facebook</a>
-	<!--
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
--->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form>
 
 

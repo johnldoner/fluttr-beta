@@ -21,12 +21,7 @@ body {
  	color: #38a9e1;
 }
 
-#crowdfluttr {
-	height: 80px;
-	width: auto;
-	float:right;
-	margin-top: -12%;
-}
+
 
 #logosm {
 	height: 280px;
@@ -49,12 +44,15 @@ body {
 
 #intro {
 	float: left;
-	margin-left: 25%;
-	margin-top: 7%;
-	margin-right: 35%;
+	margin-left: 5%;
+	margin-top: -15%;
+	
 }
 
-
+#crowdfluttr{
+	width: 150px;
+	height: 50px;
+}
 
 .textelement {
 	padding-left: 2%;
