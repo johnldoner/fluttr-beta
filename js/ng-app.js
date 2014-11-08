@@ -2,18 +2,18 @@
 var app = angular.module("fluttrApp", ["firebase"]);
 
 app.controller("fluttrCtrl", function($scope, $firebase) {
-
-	var ref = new Firebase("https://crowdfluttr.firebaseio.com/users");
+	var url = "https://crowdfluttr.firebaseio.com/";
+	var ref = new Firebase(url);
 	
 	// Login using Facebook
   	$scope.loginFacebook = function() {
 	    console.log("Got into facebook login");
 	    ref.authWithOAuthPopup("facebook", function(error, authData) { 
 	    	$scope.loggedIn = true;
-	    	$scope.uniqueid = authData.first_name;
+	    	$scope.uniqueid = authData.facebook.displayName;
 	    	 }, {
 		  remember: "sessionOnly",
-		  scope: "email,first_name"
+		  scope: "email"
 		});
 	};
 
@@ -22,10 +22,20 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 	    console.log("Got into google login");
 	    ref.authWithOAuthPopup("google", function(error, authData) { 
 	    	$scope.loggedIn = true;
-	    	$scope.uniqueid = authData.uid;
+	    	$scope.uniqueid = authData.google.displayName;
 	    	    	 }, {
 		  remember: "sessionOnly",
 		  scope: "email"
+		});
+
+		ref.onAuth(function(authData) {
+		  if (authData) {
+		    // user authenticated with Firebase
+		    console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+		    window.location.href = "https://crowdfluttr.firebaseapp.com/" + "main.html";
+		  } else {
+		    // user is logged out
+		  }
 		});
 	};
 
@@ -35,14 +45,16 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 		$scope.loggedIn = false;
 	  };
 
+		
+
 		$scope.addIdea = function(title, id, displayName) {
-			$scope.displayName = user.displayName;
-			$scope.uid = user.uid;
+			$scope.displayName = authData.displayName;
+			$scope.uid = authData.uid;
 
 				$scope.ideas.$add(
 					{
 						"title": title, 
-						"user": user.uid,
+						"user": authData.uid,
 						"timestamp": Date.now()
 					}
 					);
