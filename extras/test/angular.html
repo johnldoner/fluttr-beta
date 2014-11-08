@@ -1,0 +1,122 @@
+<!--
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-app="" ng-controller="personController">
+
+<button ng-click="toggle()">Hide user</button>
+
+<p ng-hide="myVar">
+First Name: <input type=text ng-model="firstName"><br>
+Last Name: <input type=text ng-model="lastName"><br><br>
+Full Name: {{firstName + " " + lastName}}
+</p>
+
+</div>
+
+<script>
+function personController($scope) {
+    $scope.firstName = "John",
+    $scope.lastName = "Doe"
+    $scope.myVar = false;
+    $scope.toggle = function() {
+        $scope.myVar = !$scope.myVar;
+    };
+}
+</script> 
+
+</body>
+</html>
+-->
+
+
+<!--example2-->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+
+<body>
+<div ng-app="" ng-controller="formController">
+  <form novalidate>
+    First Name:<br>
+    <input type="text" ng-model="user.firstName"><br>
+    Last Name:<br>
+    <input type="text" ng-model="user.lastName">
+    <br><br>
+    <button ng-click="reset()">RESET</button>
+  </form>
+  <p>form = {{user }}</p>
+  <p>master = {{master}}</p>
+</div>
+
+<script>
+function formController ($scope) {
+    $scope.master = {firstName:"John", lastName:"Doe"};
+    $scope.reset = function() {
+        $scope.user = angular.copy($scope.master);
+    };
+    $scope.reset();
+}
+</script>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+
+<body>
+<h2>Validation Example</h2>
+
+<form  ng-app=""  ng-controller="validateCtrl"
+name="myForm" novalidate>
+
+<p>Username:<br>
+  <input type="text" name="user" ng-model="user" required>
+  <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+  <!-- what is the meaning for this. just the style? or other criteria?-->
+  <span ng-show="myForm.user.$error.required">Username is required.</span>
+  </span>
+</p>
+
+<p>Email:<br>
+  <input type="email" name="email" ng-model="email" required>
+  <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+  <span ng-show="myForm.email.$error.required">Email is required.</span>
+  <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+  </span>
+</p>
+
+<p>
+  <input type="submit"
+  ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+  myForm.email.$dirty && myForm.email.$invalid">
+</p>
+
+</form>
+
+<script>
+function validateCtrl($scope) {
+    $scope.user = 'John Doe';
+    $scope.email = 'john.doe@gmail.com';
+}
+</script>
+
+</body>
+</html>

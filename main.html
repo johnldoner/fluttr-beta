@@ -1,5 +1,5 @@
 
-<html ng-app="fluttrApp">
+<html ng-app="">
 <head>
   <meta charset="utf-8">
   <title>CrowdFluttr</title>
@@ -12,7 +12,7 @@
     <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
     <script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
-    <script src="js/module.js"></script>
+
     <link rel="shortcut icon" href="images/logosm.png">
 <!--
 <script src="css/style.css"></script>
@@ -21,6 +21,9 @@
     <script type="text/javascript" src="js/jssor/jssor.slider.js"></script>
       <script type="text/javascript" src="js/jssor/example.js"></script>
    <link rel="stylesheet" type="text/css" href="css/slider.css" />
+<!--
+<script src= "js/MainPage.js"></script>
+-->
 
 <style>
 #crowdfluttr {
@@ -29,7 +32,8 @@
   margin-left: 8%;
 }
 </style>
-  </head>  <body ng-controller="fluttrCtrl">
+  </head> 
+   <body ng-controller="mainController">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -43,10 +47,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!--
-      <a class="navbar-brand" href="#">Brand</a>
-      -->
-      <img id="crowdfluttr" src="images/crowdfluttr.jpg" alt="Crowdfluttr"/></a>
+      
+    <img id="crowdfluttr" src="images/crowdfluttr.jpg" alt="Crowdfluttr"/></a>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,11 +59,19 @@
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
+        <!--
+        <button type="submit" class="btn btn-default">Search</button>
+        -->
         <button type="submit" class="btn btn-default">
   <span class="glyphicon glyphicon-search"></span></button>
+
+
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="main.html">Share Ideas</a></li>
+        <!--
+        <li><a href="#">Inbox <span class="badge">42</span></a></li>
+        -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -86,7 +97,9 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+<!--
+<div ng-include="navigatebar.html"></div>
+-->
 
     <!-- Main slider -->
         <div style="position: relative; margin-top: 50px; top: 0px; left: 0px; width:100%; text-align: center; background-image: url(js/Jssor.Slider.FullPack/img/home/back-dice-02.jpg); border-top: 1px solid gray; border-bottom: 1px solid gray; overflow: hidden;">
@@ -438,7 +451,7 @@
 
 
     <div class="container">
-      <!-- Example row of columns -->
+   
       <div class="row">
         <div class="col-md-12">
           <h2 class="text-center">Random idea</h2>
@@ -446,7 +459,7 @@
       </div>
       
           <div class="container">
-      <!-- Example row of columns -->
+
       <div class="row">
         <div class="col-md-12">
           <h2>Create your idea now:</h2>
@@ -474,7 +487,8 @@
       <footer>
         <p>&copy; Company 2014</p>
       </footer>
-    </div> <!-- /container -->
+    </div> 
+    
 
   </body>
 </html>
