@@ -15,6 +15,8 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 		  remember: "sessionOnly",
 		  scope: "email"
 		});
+
+		checkLogin();
 	};
 
   	// Login using Google
@@ -28,17 +30,35 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 		  scope: "email"
 		});
 
+		checkLogin();
+	};
+
+	function checkLogin() {
 		ref.onAuth(function(authData) {
 		  if (authData) {
 		    // user authenticated with Firebase
 		    console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
 		    window.location.href = "https://crowdfluttr.firebaseapp.com/" + "main.html";
-		  } else {
-		    // user is logged out
 		  }
 		});
-	};
+	}
 
+	$scope.passwordLogin = function() {
+		ref.authWithPassword({
+		  email    : mail,
+		  password : pass
+		}, function(error, authData) {
+		  if (error === null) {
+		    // user authenticated with Firebase
+		    console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+		  } else {
+		    console.log("Error authenticating user:", error);
+		  }
+		});
+
+		checkLogin();
+	};
+	
 
 	 $scope.logout = function() {
 		ref.unauth();
