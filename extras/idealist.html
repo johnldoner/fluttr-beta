@@ -7,6 +7,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.6/angular.min.js'></script>
     <script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
     <script src='https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js'></script>
+    
  
   </head>
   
@@ -18,7 +19,18 @@
          <div ng-repeat="(id,item) in data">
             <strong>{{item.title}}</strong>
             <button  ng-click="LikeItem(id)">Like</button><button  ng-click="DislikeItem(id)">Dislike</button>
+
+            <ul>
+              <li ng-repeat="comment in comments">{{comment}}
+              <a href=" " ng-click = "removeComment(comment)">remove</a>
+              </li>
+            </ul>
+            <form ng-sumbit = "addComment()">
+              <textarea type="text" ng-model="enterComment"></textarea>
+              <input type="submit" value="Comment" />
+            </form>
         </div>
+
          
 
     </div>
@@ -31,7 +43,7 @@ angular.module("app", ["firebase"])
    function($scope, $firebase) {
  
   
-  var ref = new Firebase("https://resplendent-fire-1812.firebaseio.com/ideas");
+  var ref = new Firebase("https://crowdfluttr.firebaseio.com/ideas");
    
     var sync = $firebase(ref)
     $scope.data = sync.$asArray();
@@ -49,12 +61,30 @@ angular.module("app", ["firebase"])
         $scope.data[id].Like = 'True';
         $scope.data[id].Seen = 'True';
         $scope.data.$save(id);
-}
+};
     $scope.DislikeItem = function (id) {
         $scope.data[id].Like = 'False';
         $scope.data[id].Seen = 'True';
         $scope.data.$save(id);
-}
+};
+
+    var commentUrl = new Firebase("https://crowdfluttr.firebaseio.com/comments");
+    var commentData = $firebase(commentUrl);
+    $scope.comments = commentData.$asArray();
+
+    $scope.addComment = function(){
+      $scope.comments.$add({
+        comment: $scope.enterComment,
+        timestamp: Date.now()
+      });
+      //$scope.comments.push($scope.enterCommend);
+      $scope.enterComment = " ";
+    };
+
+    $scope.removeComment = function (comment) {
+      var i = $scope.comments.indexOf(comment);
+      $scope.comments.splice(i,1);
+    };
   });
 </script>
 
