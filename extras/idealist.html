@@ -25,10 +25,10 @@
               <a href=" " ng-click = "removeComment(comment)">remove</a>
               </li>
             </ul>
-            <form ng-sumbit = "addComment()">
-              <textarea type="text" ng-model="enterComment"></textarea>
-              <input type="submit" value="Comment" />
-            </form>
+            <button type="submit" ng-click="addComment(enterComment,id)">Comment</button>
+            <textarea ng-model="enterComment" placeholder='Comment'></textarea>
+            
+
         </div>
 
          
@@ -68,13 +68,14 @@ angular.module("app", ["firebase"])
         $scope.data.$save(id);
 };
 
-    var commentUrl = new Firebase("https://crowdfluttr.firebaseio.com/comments");
-    var commentData = $firebase(commentUrl);
-    $scope.comments = commentData.$asArray();
 
-    $scope.addComment = function(){
+
+    $scope.addComment = function(s,id){
+      var commentUrl = new Firebase("https://crowdfluttr.firebaseio.com/comments/" + id);
+      var commentData = $firebase(commentUrl);
+      $scope.comments = commentData.$asArray();
       $scope.comments.$add({
-        comment: $scope.enterComment,
+        comment: s,
         timestamp: Date.now()
       });
       //$scope.comments.push($scope.enterCommend);
@@ -82,6 +83,9 @@ angular.module("app", ["firebase"])
     };
 
     $scope.removeComment = function (comment) {
+      var commentUrl = new Firebase("https://crowdfluttr.firebaseio.com/comments/");
+      var commentData = $firebase(commentUrl);
+      $scope.comments = commentData.$asArray();
       var i = $scope.comments.indexOf(comment);
       $scope.comments.splice(i,1);
     };
