@@ -12,15 +12,8 @@ body {
  	background: url(images/bg.png); 
  	background-repeat: no-repeat;
  	background-position: center top;
- 	font-family: Arial;
- }
-
- h1 {
  	font-family: ProximaNova;
- 	font-size: 36px;
- 	color: #38a9e1;
-}
-
+ }
 
 
 #logosm {
@@ -50,11 +43,20 @@ body {
 }
 
 #crowdfluttr{
-	width: 150px;
-	height: 50px;
+	/*
+	width: 186px;
+	height: 44px;
+	
+	*/
+
+	width: 348px;
+	height: 82px;
+	
+
 }
 
 .textelement {
 	padding-left: 2%;
+	color: white;
 }
 

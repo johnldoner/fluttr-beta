@@ -58,12 +58,20 @@ body{
 	/* Style for our header texts
 	* --------------------------------------- */
 	h1{
-		font-size: 5em;
+		font-size: 3em;
 		font-family:ProximaNova,sans-serif;
 		/*Proxima Nova*/
 		color: #fff;
-		margin:0;
+		margin:10px;
 		padding:0;
+	}
+	/*according to the design*/
+	#title{
+font-size: 24px;
+font-weight: bold;
+	}
+	#content{
+font-size: 16px;
 	}
 	.intro p{
 		color: #fff;
@@ -159,9 +167,11 @@ body{
 
 
 <ul id="menu">
+<img id="crowdfluttr" src="images/crowdfluttr.jpg " alt="Crowdfluttr"/>
 
-<a href="http://www.crowdfluttr.com"><img id="crowdfluttr" src="images/crowdfluttr.jpg" alt="Crowdfluttr"/></a>
-
+<!--
+<a href="http://www.crowdfluttr.com"><img id="crowdfluttr" src="images/logo_full.svg " alt="Crowdfluttr"/></a>
+-->
 	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Intro</a></li>
 <!--
 	<li ng-hide="loggedIn"><a ng-href="#" ng-click="loginGoogle()">Login with Google</a></li>
@@ -182,11 +192,11 @@ body{
 
   <table id="intro">
     <tr>
-      <td><a href="http://www.crowdfluttr.com"><img id="logosm" src="images/logomed.png" alt="Crowdfluttr"/></a></td>
+      <td></td>
       <td>
         <div class="textelement">
-          <h1>Welcome to CrowdFluttr</h1>
-			<p>Share your idea, get global feedback to make it better, and allow passionate people interested in bring the idea to life help make it happen.
+          <P id="title">Welcome to CrowdFluttr.</h1>
+			<p id="content">Share your ideas with friends--and awesome people from around the world. Join campaigns organized around your passions. Collaborate to realize the world’s imagination.
 		</div>
       </td>
     </tr>
@@ -195,8 +205,8 @@ body{
 
       <form class="form-signin" role="form">
         <h2 class="form-signin-heading">Please login</h2>
-        <input type="email" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" required>
+        <input type="email" class="form-control" ng-model="mail" placeholder="Email address" required autofocus>
+        <input type="password" class="form-control" ng-model="pass" placeholder="Password" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me

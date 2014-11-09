@@ -60,9 +60,7 @@ body{
 	width: 960px;
 	position: relative;
 }
-h1{
-	font-size: 6em;	
-}
+
 p{
 	font-size: 2em;
 }
@@ -103,7 +101,7 @@ p{
 }
 #menu li a,
 #menu li.active a{
-	padding: 9px 18px;
+	padding: 5px 12px;
 	display:block;
 }
 #menu li.active a{
@@ -119,5 +117,5 @@ p{
 	padding: 0;
 	margin:0;
 	background-color: #fff;
-	height:50px;
+	height:44px;
 }
