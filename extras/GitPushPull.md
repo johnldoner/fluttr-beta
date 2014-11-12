@@ -17,7 +17,7 @@ git remote add origin https://github.com/johnldoner/fluttr.git
 
 ```
 git add *
-git commit -m "restructured"
+git commit -m "fixed commenting"
 git push -u origin master
 
 git add -A 
