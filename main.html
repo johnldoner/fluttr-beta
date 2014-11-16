@@ -16,15 +16,14 @@
     <link rel="shortcut icon" href="images/logosm.png">
       <link rel="stylesheet" type="text/css" href="css/carousel.css" />
 <!--
-<script src="css/style.css"></script>
+<script src="css/main.css"></script>
 -->
-
 <!--
     <script type="text/javascript" src="js/jssor/jssor.js"></script>
     <script type="text/javascript" src="js/jssor/jssor.slider.js"></script>
       <script type="text/javascript" src="js/jssor/example.js"></script>
    <link rel="stylesheet" type="text/css" href="css/slider.css" />
--->c
+-->
 
 <!--
 <script src= "js/MainPage.js"></script>
@@ -32,10 +31,44 @@
 
 <style>
 #crowdfluttr {
-  height: 50px;
+  height: 55px;
   width: 200px;
   margin-left: 8%;
 }
+.navbar-center{
+  /*
+  margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+     margin-left: 35%;
+    margin-right: 5%;
+
+      position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+
+    .navbar-center{
+
+    width: 100%;
+    text-align: center;
+    > li {
+      float: none;
+      display: inline-block;
+    }
+  
+}
+    */
+
+margin-left: 35%;
+ text-align: center;
+
+
+}
+
+
 </style>
   </head> 
    <body ng-controller="mainController">
@@ -43,22 +76,18 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
+
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+    <div class="navbar-header ">
+
       
-    <img id="crowdfluttr" src="images/crowdfluttr.jpg" alt="Crowdfluttr"/></a>
+    <img id="crowdfluttr" src="images/logo_full.svg" alt="Crowdfluttr"/></a>
 
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <!--
+<li><a class="nav-center" href="#">HOW IT WORKS</a></li>
+<li><a class="nav-center" href="#">EXPLORE</a></li>
+-->
 
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
@@ -68,12 +97,22 @@
         <button type="submit" class="btn btn-default">Search</button>
         -->
         <button type="submit" class="btn btn-default">
-  <span class="glyphicon glyphicon-search"></span></button>
+         <span class="glyphicon glyphicon-search"></span></button>
 
 
       </form>
+ 
+   <ul class="nav navbar-nav navbar-center">
+   <!--nav-justified-->
+      
+      <li ><a href="#">HOW IT WORKS</a></li>
+      <li ><a href="#">EXPLORE</a></li>
+
+</ul>
+
+
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="main.html">Share Ideas</a></li>
+      <li><a href="main.html">Share Ideas</a></li>
         <!--
         <li><a href="#">Inbox <span class="badge">42</span></a></li>
         -->

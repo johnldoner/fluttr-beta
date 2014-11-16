@@ -63,6 +63,28 @@ html, body {
     float: left;
     position: relative;
 }
+/*
+.fp-controlArrow{
+  
+    position: absolute;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+       background: url(../Jssor.Slider.FullPack/img/a21.png) center center no-repeat;
+   
+ 
+
+}
+
+.fp-controlArrow.fp-prev{
+    background-position: -3px -33px;
+            
+}
+.fp-controlArrow.fp-next{
+ background-position: -63px -33px; 
+    }
+    */
+
 .fp-controlArrow {
     position: absolute;
     z-index: 4;
@@ -74,16 +96,33 @@ html, body {
     margin-top: -38px;
 }
 .fp-controlArrow.fp-prev {
-    left: 15px;
+    /*
+    
     width: 0;
     border-width: 38.5px 34px 38.5px 0;
     border-color: transparent #fff transparent transparent;
+    a21.png
+    back.jpg 
+    */
+    left: 15px;
+    width:50px;
+    height: 50px;
+    background: url(../Jssor.Slider.FullPack/img/a21.png) center center no-repeat;
+    background-position: -3px -33px;
 }
 .fp-controlArrow.fp-next {
+    /*
     right: 15px;
     border-width: 38.5px 0 38.5px 34px;
     border-color: transparent transparent transparent #fff;
+    */
+    right: 15px;
+    width:50px;
+    height: 50px;
+    background: url(../Jssor.Slider.FullPack/img/a21.png) center center no-repeat;
+    background-position: -63px -33px; 
 }
+
 .fp-scrollable {
     overflow: scroll;
 
