@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
+	<meta name="description" content="Crowdflutr" />
   <link rel="shortcut icon" href="images/logosm.png">
 
   <link type='text/css' rel='stylesheet' href='css/style.css' />
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>CrowdFluttr</title>
+	<meta name="keywords"  content="Crowdfluttr,Social-Working" />
 	<meta name="author" content="Alvaro Trigo Lopez" />
 	<meta name="description" content="fullPage looping demo." />
 	<meta name="keywords"  content="fullpage,jquery,looping,loop,loopTop,loopBottom,demo" />
@@ -18,10 +21,16 @@
 	<link rel="stylesheet" type="text/css" href="js/fullPage/jquery.fullPage.css" />
 
 	<link rel="stylesheet" type="text/css" href="js/fullPage/examples/examples.css" />
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/carousel.css" />
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
 	<script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
 	<script src="js/ng-app.js"></script>
+		<script src="js/idea-swipe-app.js"></script>
 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -34,77 +43,62 @@
 	<script type="text/javascript" src="js/fullPage/examples/examples.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#fullpage').fullpage({
-				//sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],Dark teal #38a9e1 Light teal #7ccced
-			//	sectionsColor: ['#f8b040', '#7ccced', '#38a9e1'],
-				anchors: ['firstPage', 'secondPage', '3rdPage'],
-				menu: '#menu',
-				loopTop: true,
-				loopBottom: true
-			});
+				$('#fullpage').fullpage({
+		//sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],Dark teal #38a9e1 Light teal #7ccced
+		sectionsColor: ['#f8b040', '#7ccced', '#38a9e1'],
+		//anchors: ['Page1', 'Page2', 'Page3'],
+		menu: '#menu',
+		loopTop: true,
+		loopBottom: true,
+		fixedElements: '#arrowL, #arrowR',
+		//normalScrollElements:'#arrowL, #arrowR',
+		//paddingBottom: '100px',
+		// onSlideLeave: function(anchorLink, index, slideIndex, direction){alert("slideleave:"+anchorLink);},
+		 //onLeave: function(index, nextIndex, direction){alert("onleave:"+direction);}
 		});
-	</script>
-	<style>
-	@font-face {
-    font-family: ProximaNova;
-    src: url(fonts/ProximaNovaRegular.otf);
-    /* font-style: italic;
-    */
-}
-body{
-	font-family:ProximaNova,sans-serif;
-}
-	/* Style for our header texts
-	* --------------------------------------- */
-	h1{
-		font-size: 3em;
-		font-family:ProximaNova,sans-serif;
-		/*Proxima Nova*/
-		color: #fff;
-		margin:10px;
-		padding:0;
-	}
-	/*according to the design*/
-	#title{
-text-align:left;
-font-size: 3em;
-/*24px*/
-font-weight: bold;
-	}
-	#content{
-font-size: 2em;
-text-align:left;
-/*16px*/
-}
-
-textarea {
- /*
-   font-size: 40em;
-  */
-} 
-body {
-	
-    background-image: url("images/MountainFuji.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    
-}
-#fullpage {
+				/*
+			$.fn.fullpage.moveSectionUp();
+			$.fn.fullpage.moveSectionDown();
+			$.fn.fullpage.moveTo(2, 0);	
+			
+			*/
+		//	$.fn.fullpage.setAllowScrolling(false);
+			//$.fn.fullpage.setAutoScrolling(true);
 /*
-    z-index: -1;
-    */
-    background-color: #f8b040;
-    opacity: 0.7;
-}
-#loginform{
-	 z-index: -10;
-	}
-	</style>
-}
-}
-</head>
-<body ng-controller="fluttrCtrl">
+$( "#arrowL" ).click(function() {
+	//alert("l");
+$.fn.fullpage.moveSlideLeft();
+});
+$( "#arrowR" ).click(function() {
+	//alert("r");
+$.fn.fullpage.moveSlideRight();
+});
+*/
 
+/*
+			var rightbtn=document.getelementbyid.
+			
+*/
+		});
+
+		
+	</script>
+<style type="text/css">
+	
+a.li-center{
+	margin: 20px;
+	margin-left: 35%;
+
+	width:93px;
+}
+#Gbtn, #Fbtn{
+	min-width: 300px;
+}
+</style>
+
+</head>
+
+<body ng-controller="fluttrCtrl">
 
 
 <ul id="menu">
@@ -112,9 +106,9 @@ body {
 <!--
 <img id="" src="images/MountainFuji.jpg " alt="mountain"/>
 -->
-	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">Intro</a></li>
-	<li ><a href="#">HOW IT WORKS</a></li>
-	<li ><a href="#">EXPLORE</a></li>
+	<li data-menuanchor="Page1" class="active"><a href="#Page1">Home</a></li>
+	<a class="li-center" href="#">HOW IT WORKS</a>
+	<a class-"li-center" href="#">EXPLORE</a>
 	<li ><a href="signup.html">Sign up</a></li>
 
 	<li ng-show="loggedIn"><a ng-href="#" ng-click="logout()">Logout</a></li>
@@ -122,55 +116,53 @@ body {
 </ul>
 
 <div id="fullpage">
-	<div class="section " id="section0">
-		 <div class="slide" id="slide1">
-		   
-
-  <div class="row">
-  <div class="col-lg-7">
-      	 <div class="textelement col-lg-offset-3">
-          <P id="title">Welcome to CrowdFluttr.</h1>
-			<p id="content">Share ideas with friends--and awesome people from around the world. Collaborate to realize the world's best ideas.
-		</div>
-  </div>
-  <div class="col-lg-5" id="loginform">
-  <div class="row">
-         <form class="form-signin" role="form">
-         <!--
-        <h2 class="form-signin-heading">Please login</h2>
-        -->
-
-        <input type="email" class="form-control" ng-model="mail" placeholder="Email address" required autofocus>
-        <input type="password" class="form-control" ng-model="pass" placeholder="Password" required>
-
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-default btn-block" type="submit">Login</button>
-        </div>
-<div class="row">
-	<button  class="btn btn-danger col-lg-4 col-lg-offset-4" ng-href="#" ng-click="loginGoogle()">
-	<img src="images/GoogleButton.png" alt="fbtn" height="40" width="40">Login with Google</button>
-	</div>
-<div class="row">
-	<br>
-	<button  class="btn btn-primary col-lg-4 col-lg-offset-4" ng-href="#" ng-click="loginFacebook()">
-	<img src="images/FacebookButton.gif" alt="gbtn" height="40" width="40">Login with Facebook</button>
-	</div>
-	<!--
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+	
+<div class="section " id="section0">
+	<div class="slide container-fluid" id="slide1">
+		<div class="row">
+			<div class="col-lg-7">
+			    <!-- Arrow Left -->
+		<!--	    
+      <a>  <span u="arrowleft" id="arrowL" class="jssora21l fp-controlArrow fp-prev" style="width: 55px; height: 55px; top: 123px; left: 8px;">
+        </span></a>
+           <a>  <span u="arrowleft" id="arrowL" class="jssora21l " style="width: 55px; height: 55px; top: 123px; left: 8px;">
+        </span></a>
 -->
-      </form>
-  </div>
-  </div>
+				<div class="textelement col-lg-offset-3">
+					<P id="title">Welcome to CrowdFluttr.</h1>
+					<p id="content">Share ideas with friends--and awesome people from around the world. Collaborate to realize the world's imagination.
 
+				</div>
+			</div>
+			<div class="col-lg-5">
+				<form class="form-signin" role="form">
+					<h2 class="form-signin-heading">Please login</h2>
+					<br>
+					<div class="form-group">
 
-    
+					<button class="btn btn-lg btn-danger" id="Gbtn" ng-href="#" ng-click="loginGoogle()">
+					<img src="images/GoogleButton.png" alt="gbtn" height="40" width="40">Login with Google</button> 
+					</div>
+					<div class="form-group">
+					<button class="btn btn-lg btn-primary" id="Fbtn" ng-href="#" ng-click="loginFacebook()">
+					<img src="images/FacebookButton.gif" alt="fbtn" height="40" width="40">Login with Facebook</button> 
+					<!--facebook.jpg"-->
+					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+					</fb:login-button>
+					</div>
+				</form>
 
-
+  
+        <!-- Arrow Right -->
+        <!--
+        <a>  <span u="arrowright" id="arrowR" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px">
+        </span></a>
+        
+      <a>  <span u="arrowright" id="arrowR" class="jssora21r fp-controlArrow fp-next" style="width: 55px; height: 55px; top: 123px; right: 8px">
+        </span></a>-->
+			</div>
+			
+		</div>
 		</div>
 
 	    <div class="slide" id="slide2">
@@ -180,7 +172,7 @@ body {
 
 		<form role="form" ng-submit="addIdea(title)">
 		<div class="row">
-  <div class="col-lg-6 col-lg-offset-3">
+  <div class="col-lg-6 col-lg-offset-3 col-md-8 col-xs-6">
    <textarea class="form-control" rows="5" ng-model="title" id="idea-title" placeholder="What's your idea called?" ></textarea>
 <!--
 			 <input type="text" class="form-control" ng-model="title" id="idea-title" placeholder="What's your idea called?" />
@@ -191,28 +183,44 @@ body {
 			<button type='submit' class="btn btn-success btn-lg"> MAKE IT HAPPEN</button>
 		</form>
 	</div>
-
-<!--
-
-	<div class="section" id="section1">
-		<div class="intro">
-			<h1>Sign up</h1>
-			<input type='text' id='username' placeholder='Name'> </input>
-			<input type='text' id='email' placeholder='Email'> </input>
-			<button type='button'> Sign Up for Entry Access</button>
-		</div>
-	</div>
-	<div ng-hide="loggedIn" class="section" id="section2">
-		<div class="intro">
-			<h1>Login</h1>
-
-			<h4>Login with:</h4><br>
-			<a ng-href="#" class="classname" ng-click="loginGoogle()">GOOGLE</a> &nbsp; &nbsp; &nbsp; 
-			<a ng-href="#" class="classname" ng-click="loginFacebook()">FACEBOOK</a><br>
-		</div>
-	</div>
--->
 </div>
+
+<div class="section ">
+<div class="slide">
+	<div ng-controller="swipeCtrl">
+	    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+	        <div class="carousel-inner" role="listbox">
+	            <div class="item" ng-repeat="(id,item) in data" ng-class="{active : $first}"> 
+	            <div class="carousel-caption">
+	            <img src="images/logomed.png">
+	            	<h1>{{item.title}}</h1>
+	            	 <p><input ng-model="enterComment" type="text" class="form-control" ></p>
+	            	 <button type="submit" class="btn btn-lg btn-default"  ng-click="addComment(enterComment,id)">Comment<span class="glyphicon glyphicon-comment"></span></button>
+	            	 <a ng-click="LikeItem(id)" class="btn btn-lg btn-primary" href="#" role="button">Like<span class="glyphicon glyphicon-heart"></span></a>
+	            	 <a ng-click="DislikeItem(id)" class="btn btn-lg btn-warning" href="#" role="button">Dislike<span class="glyphicon glyphicon-heart-empty"></span></a>
+	            	 <!--glyphicon glyphicon-thumbs-up
+	            	 glyphicon glyphicon-thumbs-down
+	            	 -->
+	            </div>
+	            </div>
+	        </div> <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+	        <span class="glyphicon glyphicon-chevron-left"></span>
+	        <span class="sr-only">Previous</span>
+	      </a>
+	       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+	        <span class="glyphicon glyphicon-chevron-right"></span>
+	        <span class="sr-only">Next</span>
+	      </a>
+
+	    </div>
+	</div>
+</div>
+</div>
+
+
+
+
+
 
 </body>
 </html>
