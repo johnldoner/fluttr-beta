@@ -52,11 +52,14 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 500px;
+  height: 600px;
  background-color: #f8b040;
-/* 
- background-image: url("../images/MountainFuji.jpg");
-  */
+}
+.carousel-caption>img{
+  width: 360px;
+  height: 240px;
+  border-color: grey;
+border-radius: 10px;
 }
 .carousel-inner > .item > img {
   position: absolute;
