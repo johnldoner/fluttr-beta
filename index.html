@@ -1,44 +1,35 @@
 <html ng-app="fluttrApp">
-<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-	<meta name="description" content="Crowdflutr" />
+	<meta name="description" content="Crowdfluttr" />
   <link rel="shortcut icon" href="images/logosm.png">
 
   <link type='text/css' rel='stylesheet' href='css/style.css' />
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>CrowdFluttr</title>
-	<meta name="keywords"  content="Crowdfluttr,Social-Working" />
-	<meta name="author" content="Alvaro Trigo Lopez" />
-	<meta name="description" content="fullPage looping demo." />
-	<meta name="keywords"  content="fullpage,jquery,looping,loop,loopTop,loopBottom,demo" />
-	<meta name="Resource-type" content="Document" />
-
-
 	<link rel="stylesheet" type="text/css" href="js/fullPage/jquery.fullPage.css" />
-
 	<link rel="stylesheet" type="text/css" href="js/fullPage/examples/examples.css" />
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="css/carousel.css" />
 
+
+    <!--CRITICAL CODE-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
 	<script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
+
+
 	<script src="js/ng-app.js"></script>
-		<script src="js/idea-swipe-app.js"></script>
+	<script src="js/idea-swipe-app.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
+	 <!--END CRITICAL CODE-->
 
-
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="css/signin.css" />
-
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/signin.css" />
 	<script type="text/javascript" src="js/fullPage/jquery.fullPage.js"></script>
 	<script type="text/javascript" src="js/fullPage/examples/examples.js"></script>
 	<script type="text/javascript">
@@ -56,29 +47,7 @@
 		// onSlideLeave: function(anchorLink, index, slideIndex, direction){alert("slideleave:"+anchorLink);},
 		 //onLeave: function(index, nextIndex, direction){alert("onleave:"+direction);}
 		});
-				/*
-			$.fn.fullpage.moveSectionUp();
-			$.fn.fullpage.moveSectionDown();
-			$.fn.fullpage.moveTo(2, 0);	
-			
-			*/
-		//	$.fn.fullpage.setAllowScrolling(false);
-			//$.fn.fullpage.setAutoScrolling(true);
-/*
-$( "#arrowL" ).click(function() {
-	//alert("l");
-$.fn.fullpage.moveSlideLeft();
-});
-$( "#arrowR" ).click(function() {
-	//alert("r");
-$.fn.fullpage.moveSlideRight();
-});
-*/
 
-/*
-			var rightbtn=document.getelementbyid.
-			
-*/
 		});
 
 		
@@ -100,12 +69,8 @@ a.li-center{
 
 <body ng-controller="fluttrCtrl">
 
-
 <ul id="menu">
 <img id="crowdfluttr" src="images/logo_full.svg" alt="Crowdfluttr"/>
-<!--
-<img id="" src="images/MountainFuji.jpg " alt="mountain"/>
--->
 	<li data-menuanchor="Page1" class="active"><a href="#Page1">Home</a></li>
 	<a class="li-center" href="#">HOW IT WORKS</a>
 	<a class-"li-center" href="#">EXPLORE</a>
@@ -121,13 +86,7 @@ a.li-center{
 	<div class="slide container-fluid" id="slide1">
 		<div class="row">
 			<div class="col-lg-7">
-			    <!-- Arrow Left -->
-		<!--	    
-      <a>  <span u="arrowleft" id="arrowL" class="jssora21l fp-controlArrow fp-prev" style="width: 55px; height: 55px; top: 123px; left: 8px;">
-        </span></a>
-           <a>  <span u="arrowleft" id="arrowL" class="jssora21l " style="width: 55px; height: 55px; top: 123px; left: 8px;">
-        </span></a>
--->
+
 				<div class="textelement col-lg-offset-3">
 					<P id="title">Welcome to CrowdFluttr.</h1>
 					<p id="content">Share ideas with friends--and awesome people from around the world. Collaborate to realize the world's imagination.
@@ -153,13 +112,6 @@ a.li-center{
 				</form>
 
   
-        <!-- Arrow Right -->
-        <!--
-        <a>  <span u="arrowright" id="arrowR" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px">
-        </span></a>
-        
-      <a>  <span u="arrowright" id="arrowR" class="jssora21r fp-controlArrow fp-next" style="width: 55px; height: 55px; top: 123px; right: 8px">
-        </span></a>-->
 			</div>
 			
 		</div>
@@ -198,43 +150,26 @@ a.li-center{
 	            	 <button type="submit" class="btn btn-lg btn-default"  ng-click="addComment(enterComment,id)">Comment<span class="glyphicon glyphicon-comment"></span></button>
 	            	 <a ng-click="LikeItem(id)" class="btn btn-lg btn-primary" href="#" role="button">Like<span class="glyphicon glyphicon-heart"></span></a>
 	            	 <a ng-click="DislikeItem(id)" class="btn btn-lg btn-warning" href="#" role="button">Dislike<span class="glyphicon glyphicon-heart-empty"></span></a>
-	            	 <!--glyphicon glyphicon-thumbs-up
-	            	 glyphicon glyphicon-thumbs-down
-	            	 -->
+
 	            </div>
 	            </div>
 	        </div> 
-	        <!--
-	        <a>  <span u="arrowleft" id="arrowL" class="jssora21l " style="width: 55px; height: 55px; top: 123px; left: 8px;">
-        </span></a>
-          <a>  <span u="arrowright" id="arrowR" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px">
-        </span></a>
-        -->
 
 	       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 	        <span u="arrowleft" id="arrowL" class="jssora21l " style="width: 55px; height: 55px; top: 123px; left: 8px;">
         </span>
-	        <!--
-	        <span class="glyphicon glyphicon-chevron-left"></span>
-	        <span class="sr-only">Previous</span>
-	        -->
+
 	      </a>
 	       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
 	       <span u="arrowright" id="arrowR" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px">
         </span>
-	       <!-- <span class="glyphicon glyphicon-chevron-right"></span>
-	        <span class="sr-only">Next</span>-->
+
 	      </a>
 
 	    </div>
 	</div>
 </div>
 </div>
-
-
-
-
-
 
 </body>
 </html>
