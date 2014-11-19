@@ -7,9 +7,35 @@ var ref = new Firebase("https://crowdfluttr.firebaseio.com/ideas");
 var sync = $firebase(ref)
 $scope.data = sync.$asArray();
 
+
+  function checkLogin() {
+    var ref = new Firebase("https://crowdfluttr.firebaseio.com");
+    ref.onAuth(function(authData) {
+      if (authData) {
+        alert(authData.uid)
+        // user authenticated with Firebase
+        console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+        //window.location.href = "https://crowdfluttr.firebaseapp.com/" + "main.html";
+      }
+    });
+  }
+
+
     $scope.LikeItem = function (id) {
-        $scope.data[id].Like = 'True';
-        $scope.data[id].Seen = 'True';
+        var ref = new Firebase("https://crowdfluttr.firebaseio.com");
+        var authData = ref.getAuth();
+        alert("starting");
+        checkLogin();
+        if (authData) {
+          // user authenticated with Firebase
+          alert(authData.uid)
+          console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+        } else {
+          alert('not logged in')
+          // user is logged out
+        }
+        $scope.data[id].Like = true;
+        $scope.data[id].Seen = true;
         $scope.data.$save(id);
 };
     $scope.DislikeItem = function (id) {
