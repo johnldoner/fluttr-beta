@@ -5,21 +5,7 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 	var url = "https://crowdfluttr.firebaseio.com/";
 	var ref = new Firebase(url);
 	
-	// Login using Facebook
-  	$scope.loginFacebook = function() {
-	    console.log("Got into facebook login");
-	    ref.authWithOAuthPopup("facebook", function(error, authData) { 
-	    	$scope.loggedIn = true;
-	    	$scope.uniqueid = authData.facebook.displayName;
-	    	 }, {
-		  remember: "sessionOnly",
-		  scope: "email"
-		});
-
-		checkLogin();
-	};
-
-  	// Login using Google
+  	// LOGIN FUNCTION -- ENCAPSULATE EVERYTHING INSIDE THIS!!!
   	$scope.loginGoogle = function() {
 	    console.log("Got into google login");
 	    ref.authWithOAuthPopup("google", function(error, authData) { 
@@ -30,42 +16,16 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 		  scope: "email"
 		});
 
+		function checkLogin() {
+			ref.onAuth(function(authData) {
+			  if (authData) {
+			    // user authenticated with Firebase
+			    console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+			    window.location.href = "https://crowdfluttr.firebaseapp.com/" + "main.html";
+			  }
+			});
+		}
 		checkLogin();
-	};
-
-	function checkLogin() {
-		ref.onAuth(function(authData) {
-		  if (authData) {
-		    // user authenticated with Firebase
-		    console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
-		    window.location.href = "https://crowdfluttr.firebaseapp.com/" + "main.html";
-		  }
-		});
-	}
-
-	$scope.passwordLogin = function() {
-		ref.authWithPassword({
-		  email    : mail,
-		  password : pass
-		}, function(error, authData) {
-		  if (error === null) {
-		    // user authenticated with Firebase
-		    console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
-		  } else {
-		    console.log("Error authenticating user:", error);
-		  }
-		});
-
-		checkLogin();
-	};
-	
-
-	 $scope.logout = function() {
-		ref.unauth();
-		$scope.loggedIn = false;
-	  };
-
-		
 
 		$scope.addIdea = function(title, id, displayName) {
 			$scope.displayName = authData.displayName;
@@ -84,5 +44,15 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 		};
 		var sync = $firebase(ref);
 		$scope.ideas = sync.$asArray();
+
+
+
+	// END LOGIN FUNCTION -- MAKE SURE ALL CODE IS INSIDE THIS!!!
+	};
+
+	 $scope.logout = function() {
+		ref.unauth();
+		$scope.loggedIn = false;
+	  };
 
 });
