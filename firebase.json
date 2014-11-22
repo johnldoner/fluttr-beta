@@ -1,9 +1,9 @@
 {
-    "firebase": "cwcopte",
-    "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-    ],
-    "public": "."
+  "firebase": "crowdfluttr",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
 }

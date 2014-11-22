@@ -21,7 +21,7 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 			  if (authData) {
 			    // user authenticated with Firebase
 			    console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
-			    window.location.href = "https://crowdfluttr.firebaseapp.com/" + "main.html";
+			    window.location.href = "main.html";
 			  }
 			});
 		}
