@@ -25,12 +25,12 @@ body{
 	/*according to the design*/
 	#title{
 text-align:left;
-font-size: 3em;
+font-size: 40px;
 /*24px*/
 font-weight: bold;
 	}
 	#content{
-font-size: 2em;
+font-size: 22px;
 text-align:left;
 /*16px*/
 }

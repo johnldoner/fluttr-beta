@@ -94,6 +94,11 @@ a.li-center{
 #Gbtn, #Fbtn{
 	min-width: 300px;
 }
+/*
+#google{
+border-width:2px;
+border-color: white; 
+}*/
 </style>
 
 </head>
@@ -102,6 +107,7 @@ a.li-center{
 
 
 <ul id="menu">
+<!--<a href="main.html">-->
 <img id="crowdfluttr" src="images/logo_full.svg" alt="Crowdfluttr"/>
 <!--
 <img id="" src="images/MountainFuji.jpg " alt="mountain"/>
@@ -141,12 +147,16 @@ a.li-center{
 					<div class="form-group">
 
 					<button class="btn btn-lg btn-danger" id="Gbtn" ng-href="#" ng-click="loginGoogle()">
-					<img src="images/GoogleButton.png" alt="gbtn" height="40" width="40">Login with Google</button> 
+					<img src="images/GoogleLogo.jpg" alt="gbtn" height="40" width="40" >Login with Google</button> 
+					<!--GoogleButton.png
+					icon-google.png-->
+					
 					</div>
 					<div class="form-group">
 					<button class="btn btn-lg btn-primary" id="Fbtn" ng-href="#" ng-click="loginFacebook()">
-					<img src="images/FacebookButton.gif" alt="fbtn" height="40" width="40">Login with Facebook</button> 
-					<!--facebook.jpg"-->
+					<img src="images/facebook-01.png" alt="fbtn" height="40" width="40">Login with Facebook</button> 
+					<!--FacebookButton.gif
+					social-facebook-button-blue-icon.png-->
 					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 					</fb:login-button>
 					</div>
