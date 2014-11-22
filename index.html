@@ -1,10 +1,9 @@
 <html ng-app="fluttrApp">
-
 <head>
     <!--CRITICAL CODE-->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
 		<script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
-	    <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
+	    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
 	    <script src="js/login.js"></script>
 		<script src="js/idea-swipe-app.js"></script>
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -21,7 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="js/fullPage/examples/examples.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/carousel.css" />
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/signin.css" />
@@ -74,7 +73,7 @@ border-color: white;
 <img id="crowdfluttr" src="images/logo_full.svg" alt="Crowdfluttr"/>
 	<li data-menuanchor="Page1" class="active"><a href="#Page1">Home</a></li>
 	<a class="li-center" href="#">HOW IT WORKS</a>
-	<a class-"li-center" href="#">EXPLORE</a>
+	<a class="li-center" href="#">EXPLORE</a>
 	<li ng-hide="user"><a href="#" ng-click="auth.$authWithOAuthPopup('google')">Login</a></li>
 	<li ng-show="user"><a ng-href="#" ng-click="auth.$unauth()">Logout</a></li>
 	<li ng-show="user">Welcome, {{ user.google.displayName }}</li>
