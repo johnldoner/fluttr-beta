@@ -76,8 +76,8 @@
           <ul class="dropdown-menu" role="menu">
            <li><a href="dashboard.html">Home</a></li>
             <li class="divider"></li>
-            <li><a href="#">Authored</a></li>
-            <li><a href="#">Liked</a></li>
+            <li ng-show="loggedIn"><a href="#">Welcome, {{uniqueid}}</a></li>
+            <li ng-show="loggedIn"><a href="logout()">Logout</a></li>
             
             <li class="divider"></li>
             <li><a href="#">Authored</a></li>

@@ -77,8 +77,7 @@ border-color: white;
 	<li data-menuanchor="Page1" class="active"><a href="#Page1">Home</a></li>
 	<a class="li-center" href="#">HOW IT WORKS</a>
 	<a class-"li-center" href="#">EXPLORE</a>
-	<li ><a href="signup.html">Sign up</a></li>
-
+	<li ng-show="!loggedIn"><a href="signup.html">Sign up</a></li>
 	<li ng-show="loggedIn"><a ng-href="#" ng-click="logout()">Logout</a></li>
 	<li ng-show="loggedIn">Welcome, {{uniqueid}}</li>
 </ul>

@@ -16,6 +16,8 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 		  scope: "email"
 		});
 
+	    $scope.loggedIn = true;
+
 		function checkLogin() {
 			ref.onAuth(function(authData) {
 			  if (authData) {
@@ -53,6 +55,7 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 	 $scope.logout = function() {
 		ref.unauth();
 		$scope.loggedIn = false;
+		window.location.href="/";
 	  };
 
 });
