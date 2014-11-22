@@ -1,20 +1,6 @@
 <html ng-app="fluttrApp">
 
 <head>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-	<meta name="description" content="Crowdfluttr" />
-  <link rel="shortcut icon" href="images/logosm.png">
-
-  <link type='text/css' rel='stylesheet' href='css/style.css' />
-
-	<title>CrowdFluttr</title>
-	<link rel="stylesheet" type="text/css" href="js/fullPage/jquery.fullPage.css" />
-	<link rel="stylesheet" type="text/css" href="js/fullPage/examples/examples.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/carousel.css" />
-
-
     <!--CRITICAL CODE-->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
 		<script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
@@ -25,6 +11,16 @@
 	    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 	 <!--END CRITICAL CODE-->
 
+	<meta name="description" content="Crowdfluttr" />
+ 	<link rel="shortcut icon" href="images/logosm.png">
+
+ 	<link type='text/css' rel='stylesheet' href='css/style.css' />
+
+	<title>CrowdFluttr</title>
+	<link rel="stylesheet" type="text/css" href="js/fullPage/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="js/fullPage/examples/examples.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/carousel.css" />
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
@@ -79,9 +75,9 @@ border-color: white;
 	<li data-menuanchor="Page1" class="active"><a href="#Page1">Home</a></li>
 	<a class="li-center" href="#">HOW IT WORKS</a>
 	<a class-"li-center" href="#">EXPLORE</a>
-	<li ng-show="!loggedIn"><a href="signup.html">Sign up</a></li>
-	<li ng-show="loggedIn"><a ng-href="#" ng-click="logout()">Logout</a></li>
-	<li ng-show="loggedIn">Welcome, {{uniqueid}}</li>
+	<li ng-hide="user"><a href="#" ng-click="auth.$authWithOAuthPopup('google')">Login</a></li>
+	<li ng-show="user"><a ng-href="#" ng-click="auth.$unauth()">Logout</a></li>
+	<li ng-show="user">Welcome, {{ user.google.displayName }}</li>
 </ul>
 
 <div id="fullpage">
@@ -103,7 +99,7 @@ border-color: white;
 					<br>
 					<div class="form-group">
 
-					<button class="btn btn-lg btn-danger" id="Gbtn" ng-href="#" ng-click="loginGoogle()">
+					<button class="btn btn-lg btn-danger" id="Gbtn" ng-click="auth.$authWithOAuthPopup('google')">
 					<!--
 					<img src="images/icon-google.png" alt="gbtn" height="40" width="40" >
 					-->
@@ -117,7 +113,7 @@ fa-google
 					
 					</div>
 					<div class="form-group">
-					<button class="btn btn-lg btn-primary" id="Fbtn" ng-href="#" ng-click="loginFacebook()">
+					<button class="btn btn-lg btn-primary" id="Fbtn" ng-click="auth.$authWithOAuthPopup('facebook')">>
 					<i class="fa fa-facebook-square fa-2x" ></i>
 					<!--
 					<img src="images/facebook-01.png" alt="fbtn" height="40" width="40">
