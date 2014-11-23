@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Facebook Login Test</title>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
+<script>
+var app = angular.module("fluttrApp", ["firebase"]);
+
+app.controller("fluttrCtrl", function($scope, $firebase) {
+	var url = "https://crowdfluttr.firebaseio.com/";
+	var ref = new Firebase(url);
+	
+  	$scope.loginFacebook = function() {
+	    console.log("Got into facebook login");
+	    ref.authWithOAuthPopup("facebook", function(error, authData) { 
+	    	$scope.loggedIn = true;
+	    	$scope.uniqueid = authData.google.displayName;
+	    	    	 }, {
+		  remember: "sessionOnly",
+		  scope: "email"
+		});
+
+	    $scope.loggedIn = true;
+
+		function checkLogin() {
+			ref.onAuth(function(authData) {
+			  if (authData) {
+			    // user authenticated with Firebase
+			    console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+			  }
+			});
+		}
+		checkLogin();
+	};
+
+	 $scope.logout = function() {
+		ref.unauth();
+		$scope.loggedIn = false;
+	  };
+
+});
+
+</script>
+</head>
+<body>
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '301950310014740',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+	<section ng-app="fluttrApp" ng-controller="fluttrCtrl">
+	<button ng-show="!loggedIn" type="submit" ng-click="loginFacebook()">Login</button>
+	<p ng-show="loggedIn">Welcome, {{authData.uid}}</p> 
+	<button ng-show="loggedIn" type="submit" ng-click="logout()">Logout</button>  
+	</section>
+</body>
+</html>
