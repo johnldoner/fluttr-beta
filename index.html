@@ -28,6 +28,8 @@
 
 	 <!--END CRITICAL CODE-->
 
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/signin.css" />
 	<script type="text/javascript" src="js/fullPage/jquery.fullPage.js"></script>
@@ -106,14 +108,29 @@ border-color: white;
 					<div class="form-group">
 
 					<button class="btn btn-lg btn-danger" id="Gbtn" ng-href="#" ng-click="loginGoogle()">
-					<img src="images/GoogleLogo.jpg" alt="gbtn" height="40" width="40" >Login with Google</button> 
-					<!--GoogleButton.png
-					icon-google.png-->
+					<!--
+					<img src="images/icon-google.png" alt="gbtn" height="40" width="40" >
+					-->
+					<i class="fa fa-google-plus-square"></i>
+
+<!--fa-google-plus-square
+fa-google-plus
+fa-google
+ -->
+					Login with Google</button> 
 					
 					</div>
 					<div class="form-group">
 					<button class="btn btn-lg btn-primary" id="Fbtn" ng-href="#" ng-click="loginFacebook()">
-					<img src="images/facebook-01.png" alt="fbtn" height="40" width="40">Login with Facebook</button> 
+					<i class="fa fa-facebook-square" ></i>
+					<!--
+					<img src="images/facebook-01.png" alt="fbtn" height="40" width="40">
+					fa-facebook
+
+-->
+					Login with Facebook
+					</button> 
+					
 					<!--FacebookButton.gif
 					social-facebook-button-blue-icon.png-->
 					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
