@@ -16,12 +16,14 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 		  scope: "email"
 		});
 
+	    $scope.loggedIn = true;
+
 		function checkLogin() {
 			ref.onAuth(function(authData) {
 			  if (authData) {
 			    // user authenticated with Firebase
 			    console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
-			    window.location.href = "https://crowdfluttr.firebaseapp.com/" + "main.html";
+			    window.location.href = "main.html";
 			  }
 			});
 		}
@@ -53,6 +55,7 @@ app.controller("fluttrCtrl", function($scope, $firebase) {
 	 $scope.logout = function() {
 		ref.unauth();
 		$scope.loggedIn = false;
+		window.location.href="/";
 	  };
 
 });

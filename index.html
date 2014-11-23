@@ -16,16 +16,13 @@
 
 
     <!--CRITICAL CODE-->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
-	<script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
-
-
-	<script src="js/ng-app.js"></script>
-	<script src="js/idea-swipe-app.js"></script>
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
+	    <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
+		<script src="js/ng-app.js"></script>
+		<script src="js/idea-swipe-app.js"></script>
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 	 <!--END CRITICAL CODE-->
 
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -82,8 +79,7 @@ border-color: white;
 	<li data-menuanchor="Page1" class="active"><a href="#Page1">Home</a></li>
 	<a class="li-center" href="#">HOW IT WORKS</a>
 	<a class-"li-center" href="#">EXPLORE</a>
-	<li ><a href="signup.html">Sign up</a></li>
-
+	<li ng-show="!loggedIn"><a href="signup.html">Sign up</a></li>
 	<li ng-show="loggedIn"><a ng-href="#" ng-click="logout()">Logout</a></li>
 	<li ng-show="loggedIn">Welcome, {{uniqueid}}</li>
 </ul>
