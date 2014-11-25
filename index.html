@@ -1,193 +1,173 @@
 <html ng-app="fluttrApp">
-<head>
-    <!--CRITICAL CODE-->
+	<head>
+		<!--CRITICAL CODE-->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
 		<script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
-	    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
-	    <script src="js/login.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+		<script src="js/login.js"></script>
 		<script src="js/idea-swipe-app.js"></script>
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-	 <!--END CRITICAL CODE-->
-
-	<meta name="description" content="Crowdfluttr" />
- 	<link rel="shortcut icon" href="images/logosm.png">
-
- 	<link type='text/css' rel='stylesheet' href='css/style.css' />
-
-	<title>CrowdFluttr</title>
-	<link rel="stylesheet" type="text/css" href="js/fullPage/jquery.fullPage.css" />
-	<link rel="stylesheet" type="text/css" href="js/fullPage/examples/examples.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/carousel.css" />
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
-
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/signin.css" />
-	<script type="text/javascript" src="js/fullPage/jquery.fullPage.js"></script>
-	<script type="text/javascript" src="js/fullPage/examples/examples.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-				$('#fullpage').fullpage({
-		//sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],Dark teal #38a9e1 Light teal #7ccced
-		sectionsColor: ['#f8b040', '#7ccced', '#38a9e1'],
-		anchors: ['Page1', 'Page2', 'Page3'],
-		menu: '#menu',
-		loopTop: true,
-		loopBottom: true,
-		fixedElements: '#arrowL, #arrowR',
-		//normalScrollElements:'#arrowL, #arrowR',
-		//paddingBottom: '100px',
-		// onSlideLeave: function(anchorLink, index, slideIndex, direction){alert("slideleave:"+anchorLink);},
-		 //onLeave: function(index, nextIndex, direction){alert("onleave:"+direction);}
-		});
-
-		});
-
-		
-	</script>
-<style type="text/css">
-	
-a.li-center{
-	margin: 20px;
-	margin-left: 35%;
-
-	width:93px;
-}
-#Gbtn, #Fbtn{
-	min-width: 300px;
-}
-/*
-#google{
-border-width:2px;
-border-color: white; 
-}*/
-</style>
-
-</head>
-
-<body ng-controller="fluttrCtrl">
-
-<ul id="menu">
-<!--<a href="main.html">-->
-<img id="crowdfluttr" src="images/logo_full.svg" alt="Crowdfluttr"/>
-	<li data-menuanchor="Page1" class="active"><a href="#Page1">Home</a></li>
-	<a class="li-center" href="#">HOW IT WORKS</a>
-	<a class="li-center" href="#">EXPLORE</a>
-	<li ng-hide="user"><a href="#" ng-click="auth.$authWithOAuthPopup('google')">Login</a></li>
-	<li ng-show="user"><a ng-href="#" ng-click="auth.$unauth()">Logout</a></li>
-	<li ng-show="user">Welcome, {{ user.google.displayName }}</li>
-</ul>
-
-<div id="fullpage">
-	
-<div class="section " id="section0">
-	<div class="slide container-fluid" id="slide1">
-		<div class="row">
-			<div class="col-lg-7">
-
-				<div class="textelement col-lg-offset-3">
-					<P id="title">Welcome to CrowdFluttr.</h1>
-					<p id="content">Share ideas with friends--and awesome people from around the world. Collaborate to realize the world's imagination.
-
+		<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+		<!--END CRITICAL CODE-->
+		<meta name="description" content="Crowdfluttr" />
+		<link rel="shortcut icon" href="images/logosm.png">
+		<link type='text/css' rel='stylesheet' href='css/style.css' />
+		<title>CrowdFluttr</title>
+		<link rel="stylesheet" type="text/css" href="js/fullPage/jquery.fullPage.css" />
+		<link rel="stylesheet" type="text/css" href="js/fullPage/examples/examples.css" />
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/carousel.css" />
+		<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/signin.css" />
+		<script type="text/javascript" src="js/fullPage/jquery.fullPage.js"></script>
+		<script type="text/javascript" src="js/fullPage/examples/examples.js"></script>
+		    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		    
+		<script type="text/javascript">
+			$(document).ready(function() {
+					$('#fullpage').fullpage({
+			//sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],Dark teal #38a9e1 Light teal #7ccced
+			sectionsColor: ['#f8b040', '#7ccced', '#38a9e1'],
+			anchors: ['Page1', 'Page2', 'Page3'],
+			menu: '#menu',
+			loopTop: true,
+			loopBottom: true,
+			fixedElements: '#arrowL, #arrowR',
+			//normalScrollElements:'#arrowL, #arrowR',
+			//paddingBottom: '100px',
+			// onSlideLeave: function(anchorLink, index, slideIndex, direction){alert("slideleave:"+anchorLink);},
+			//onLeave: function(index, nextIndex, direction){alert("onleave:"+direction);}
+			});
+			});
+			
+		</script>
+		<style type="text/css">
+			
+		a.li-center{
+			margin: 20px;
+			margin-left: 35%;
+			width:93px;
+		}
+		#Gbtn, #Fbtn{
+			min-width: 300px;
+		}
+		/*
+		#google{
+		border-width:2px;
+		border-color: white;
+		}*/
+		</style>
+	</head>
+	<body ng-controller="fluttrCtrl">
+		<ul id="menu">
+			<!--<a href="main.html">-->
+			<img id="crowdfluttr" src="images/logo_full.svg" alt="Crowdfluttr"/>
+			<li data-menuanchor="Page1" class="active"><a href="#Page1">Home</a></li>
+			<li><a class="" href="https://crowdfluttrblog.wordpress.com/">HOW IT WORKS</a></li>
+			
+			<!--
+				<a class="li-center" href="#">HOW IT WORKS</a>
+			<a class="li-center" href="#">EXPLORE</a>
+			
+			<li ng-hide="user"><a href="#" ng-click="auth.$authWithOAuthPopup('google')">Login</a></li>
+			-->
+			<li ng-show="user"><a ng-href="#" ng-click="auth.$unauth()">Logout</a></li>
+			<li ng-show="user">Welcome, {{ user.google.displayName }}</li>
+		</ul>
+		<div id="fullpage">
+			
+			<div class="section " id="section0">
+				<div class="slide container-fluid" id="slide1">
+					<div class="row" id="logincontain">
+						<div class="col-lg-6">
+							<div class="textelement">
+							<!-- col-lg-offset-3-->
+								<P id="title">Welcome to CrowdFluttr.</h1>
+								<p id="content">Share ideas with friends--and awesome people from around the world. Collaborate to realize the world's imagination.
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<form class="form-signin" role="form">
+								<h2 class="form-signin-heading">Please login</h2>
+								<br>
+								<div class="form-group">
+									<button class="btn btn-lg btn-danger" id="Gbtn" ng-click="auth.$authWithOAuthPopup('google')">
+									<!--
+									<img src="images/icon-google.png" alt="gbtn" height="40" width="40" >
+									-->
+									<i class="fa fa-google-plus-square fa-2x"></i>
+									<!--fa-google-plus-square
+									fa-google-plus
+									fa-google
+									-->
+									Login with Google</button>
+									
+								</div>
+								<div class="form-group">
+									<button class="btn btn-lg btn-primary" id="Fbtn" ng-click="auth.$authWithOAuthPopup('facebook')">
+									<i class="fa fa-facebook-square fa-2x" ></i>
+									<!--
+									<img src="images/facebook-01.png" alt="fbtn" height="40" width="40">
+									fa-facebook
+									-->
+									Login with Facebook
+									</button>
+									
+									<!--FacebookButton.gif
+									social-facebook-button-blue-icon.png-->
+									<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+									</fb:login-button>
+								</div>
+							</form>
+							
+						</div>
+						
+					</div>
+				</div>
+				<!--
+				<div class="slide" id="slide2">
+					<h1>What's your idea?</h1>
+					<form role="form" ng-submit="addIdea(title)">
+						<div class="row">
+							<div class="col-lg-6 col-lg-offset-3 col-md-8 col-xs-6">
+								<textarea class="form-control" rows="5" ng-model="title" id="idea-title" placeholder="What's your idea called?" ></textarea>
+								
+							</div>
+						</div>
+						<br>
+						<button type='submit' class="btn btn-success btn-lg"> MAKE IT HAPPEN</button>
+					</form>
+				</div>
+				-->
+			</div>
+			<div class="section ">
+				<div class="slide">
+					<div ng-controller="swipeCtrl">
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner" role="listbox">
+								<div class="item" ng-repeat="(id,item) in data" ng-class="{active : $first}">
+									<div class="carousel-caption">
+										<img src="images/logomed.png">
+										<h1>{{item.title}}</h1>
+										<p><input ng-model="enterComment" type="text" class="form-control" ></p>
+										<button type="submit" class="btn btn-lg btn-default"  ng-click="addComment(enterComment,id)">Comment<span class="glyphicon glyphicon-comment"></span></button>
+										<a ng-click="LikeItem(id)" class="btn btn-lg btn-primary" href="#" role="button">Like<span class="glyphicon glyphicon-heart"></span></a>
+										<a ng-click="DislikeItem(id)" class="btn btn-lg btn-warning" href="#" role="button">Dislike<span class="glyphicon glyphicon-heart-empty"></span></a>
+									</div>
+								</div>
+							</div>
+							<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+								<span u="arrowleft" id="arrowL" class="jssora21l " style="width: 55px; height: 55px; top: 123px; left: 8px;">
+								</span>
+							</a>
+							<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+								<span u="arrowright" id="arrowR" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px">
+								</span>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-5">
-				<form class="form-signin" role="form">
-					<h2 class="form-signin-heading">Please login</h2>
-					<br>
-					<div class="form-group">
-
-					<button class="btn btn-lg btn-danger" id="Gbtn" ng-click="auth.$authWithOAuthPopup('google')">
-					<!--
-					<img src="images/icon-google.png" alt="gbtn" height="40" width="40" >
-					-->
-					<i class="fa fa-google-plus-square fa-2x"></i>
-
-<!--fa-google-plus-square
-fa-google-plus
-fa-google
- -->
-					Login with Google</button> 
-					
-					</div>
-					<div class="form-group">
-					<button class="btn btn-lg btn-primary" id="Fbtn" ng-click="auth.$authWithOAuthPopup('facebook')">
-					<i class="fa fa-facebook-square fa-2x" ></i>
-					<!--
-					<img src="images/facebook-01.png" alt="fbtn" height="40" width="40">
-					fa-facebook
-
--->
-					Login with Facebook
-					</button> 
-					
-					<!--FacebookButton.gif
-					social-facebook-button-blue-icon.png-->
-					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-					</fb:login-button>
-					</div>
-				</form>
-
-  
-			</div>
-			
-		</div>
-		</div>
-
-	    <div class="slide" id="slide2">
-
-
-		<h1>What's your idea?</h1>
-
-		<form role="form" ng-submit="addIdea(title)">
-		<div class="row">
-  <div class="col-lg-6 col-lg-offset-3 col-md-8 col-xs-6">
-   <textarea class="form-control" rows="5" ng-model="title" id="idea-title" placeholder="What's your idea called?" ></textarea>
-<!--
-			 <input type="text" class="form-control" ng-model="title" id="idea-title" placeholder="What's your idea called?" />
-			 -->
-</div>
-</div>
-<br>
-			<button type='submit' class="btn btn-success btn-lg"> MAKE IT HAPPEN</button>
-		</form>
-	</div>
-</div>
-
-<div class="section ">
-<div class="slide">
-	<div ng-controller="swipeCtrl">
-	    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-	        <div class="carousel-inner" role="listbox">
-	            <div class="item" ng-repeat="(id,item) in data" ng-class="{active : $first}"> 
-	            <div class="carousel-caption">
-	            <img src="images/logomed.png">
-	            	<h1>{{item.title}}</h1>
-	            	 <p><input ng-model="enterComment" type="text" class="form-control" ></p>
-	            	 <button type="submit" class="btn btn-lg btn-default"  ng-click="addComment(enterComment,id)">Comment<span class="glyphicon glyphicon-comment"></span></button>
-	            	 <a ng-click="LikeItem(id)" class="btn btn-lg btn-primary" href="#" role="button">Like<span class="glyphicon glyphicon-heart"></span></a>
-	            	 <a ng-click="DislikeItem(id)" class="btn btn-lg btn-warning" href="#" role="button">Dislike<span class="glyphicon glyphicon-heart-empty"></span></a>
-
-	            </div>
-	            </div>
-	        </div> 
-
-	       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-	        <span u="arrowleft" id="arrowL" class="jssora21l " style="width: 55px; height: 55px; top: 123px; left: 8px;">
-        </span>
-
-	      </a>
-	       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-	       <span u="arrowright" id="arrowR" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px">
-        </span>
-
-	      </a>
-
-	    </div>
-	</div>
-</div>
-</div>
-
-</body>
-</html>
+		</body>
+	</html>

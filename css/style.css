@@ -23,16 +23,28 @@ body{
 		padding:0;
 	}
 	/*according to the design*/
+    
+ #logincontain{
+       /* margin-top:200px; */
+        padding: 115px 0px 0px 327px;
+    }
 	#title{
 text-align:left;
 font-size: 40px;
 /*24px*/
 font-weight: bold;
+
+/*margin:-200px;
+padding: 115px 0px 0px 327px;
+*/
 	}
 	#content{
 font-size: 22px;
 text-align:left;
-/*16px*/
+
+/*16px
+padding: 160px 0px 0px 327px;
+*/
 }
 
 textarea {
