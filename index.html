@@ -52,11 +52,7 @@
 		#Gbtn, #Fbtn{
 			min-width: 300px;
 		}
-		/*
-		#google{
-		border-width:2px;
-		border-color: white;
-		}*/
+
 		</style>
 	</head>
 	<body ng-controller="fluttrCtrl">
@@ -73,7 +69,9 @@
 			<li ng-hide="user"><a href="#" ng-click="auth.$authWithOAuthPopup('google')">Login</a></li>
 			-->
 			<li ng-show="user"><a ng-href="#" ng-click="auth.$unauth()">Logout</a></li>
-			<li ng-show="user">Welcome, {{ user.google.displayName }}</li>
+			<li ng-show="user" id="welcome">Welcome, {{ user.google.displayName }}</li>
+<!-- 			<a ng-show="user" id="welcome">Welcome, {{ user.google.displayName }}</a>
+ -->
 		</ul>
 		<div id="fullpage">
 			
@@ -132,7 +130,6 @@
 						<div class="row">
 							<div class="col-lg-6 col-lg-offset-3 col-md-8 col-xs-6">
 								<textarea class="form-control" rows="5" ng-model="title" id="idea-title" placeholder="What's your idea called?" ></textarea>
-								
 							</div>
 						</div>
 						<br>
@@ -169,5 +166,6 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</body>
 	</html>
